@@ -1,4 +1,4 @@
-#PIMM med React Native
+# PIMM med React Native
 
 Innleveringsfrist fredag 12/10 for prosjektet. Guppearbeid på sal med evaluering av prosjekter 15/10.
 Prosjekt 3 teller 20% av karakteren.
@@ -13,7 +13,7 @@ Oppgaven utføres i grupper på 3.
 
 Oppgaven evalueres i forhold til krav og læringsmålene som er beskrevet under. 
 
-#Krav applikasjonens innhold og funksjonalitet
+# Krav applikasjonens innhold og funksjonalitet
 
 Løsningen skal være en prototyp innenfor det som er beskrevet over. Det er gruppa som bestemmer design, innhold og funksjonalitet i applikasjonen. Applikasjonen skal demonstrere teknologibruken og hvor my funksjonalitet dere vil ha med er opp til dere. Det holder for eksempel å vise hvordan du håndterer én type data. For å komme i havn innen den korte fristen er det viktig å avgrense seg.
 
@@ -22,9 +22,9 @@ Løsningen skal være en prototyp innenfor det som er beskrevet over. Det er gru
     Appen skal vise ett eksempel på noe som er utover basic React Native UI-problematikk (som bruk av gps, skritt-teller, direkte kommunikasjon med andre enheter - eller hva som helst annet relevant dere ønsker å utforske og som er innenfor begrensingene å få til).
 
 
-#Krav til bruk av teknologi
+# Krav til bruk av teknologi
 
-##REACT NATIVE
+## REACT NATIVE
 
 Løsningen skal baseres på React Native med bruk av Expo verktøyet (http://expo.io).
 
@@ -32,11 +32,11 @@ Løsningen skal baseres på React Native med bruk av Expo verktøyet (http://exp
     Appen skal bruke AsyncStorage slik at data lagres på enheten mellom hver gang appen kjører.
     I dette prosjektet oppfordres dere til å finne gode og relevante tredjepartskomponenter og bibliotek, samt bruke Expo api'et.
 
-##PLATTFORMUAVHENGIG
+## PLATTFORMUAVHENGIG
 
     Applikasjonen skakl fungere både på ios og andriod. 
 
-##BRUK AV GIT, KODING
+## BRUK AV GIT, KODING
 
     Koden i prosjektet skal være ryddig strukturert, ha fornuftig kommentering og ha navngiving av komponenter, variabler og funksjoner i tråd med anbefalinger (best practise).
     Gruppa skal bruke git i utviklingen (se under for lenke til prosjekt 3 repository i github classroom).
@@ -44,11 +44,11 @@ Løsningen skal baseres på React Native med bruk av Expo verktøyet (http://exp
     Ved innleveringsfristen vil github classroom automtisk lagre en snapshot av prosjektet som blir den formelle innleveringen. 
     På evalueringsdagen 15/10 skal siste versjon av systemet være tilgjengelig på github repositoriet
 
-#Krav til testing
+# Krav til testing
 
     Det skal utvikles tester med Jest og Enzyme og prosjektet skal vise god og systematisk testing av React applikasjoner.
 
-#Krav til dokumentasjon
+# Krav til dokumentasjon
 
     Prosjektet dokumenteres med en README.md i git repositoriet.
     Dokumentasjonen skal diskutere, forklare og vise til alle de viktigste valgene og løsningene som gruppa gjør (inklusive valg av komponenter og api).
@@ -57,7 +57,7 @@ Løsningen skal baseres på React Native med bruk av Expo verktøyet (http://exp
     Gruppa skal oppsummere den enkeltes bidrag i prosjektet i en egen fil som leveres i BB (dette er personopplysninger som ingen vil at skal ligge på git ;-)
 
 
-#Læringsmål for oppgaven
+# Læringsmål for oppgaven
 
     Videregående  kunnskap og ferdigheter i React (og grunnleggende fredigheter i React Native)
     Ferdigheter i å finne og velge gode tredjeparts komponenter.
@@ -65,7 +65,7 @@ Løsningen skal baseres på React Native med bruk av Expo verktøyet (http://exp
     Videregående kompetanse i bruk av git og dokumentasjon/styring av utviklingsoppgaver med issues. 
     Ferdigheter i gruppearbeid med fokus på samarbeid og læring, fordeling og koordinering av arbeidsoppgaver, utvikling og samarbeidende utvikling med git.
 
-#Plagiatkontroll
+# Plagiatkontroll
 
     Kopiering og gjenbruk av kode/løsninger som er utviklet av andre vil kun godkjennes hvis det er gjort på en måte som gir/viser læringsutbytte!
     I programmering er det naturlig å la seg inspirere av andres løsninger, gjenbruke fragmenter av kode etc. Husk å dokumentere kilder så unngår du å bli tatt for plagiering. Gjenbruk av løsninger fra innleverte prosjekt tidligere år eller andre former for omfattende kopiering, regnes som fusk.
