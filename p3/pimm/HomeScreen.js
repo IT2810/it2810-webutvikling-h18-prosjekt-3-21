@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
+import {Task} from "./Task";
 
 export class HomeScreen extends Component {
   constructor(props) {
@@ -23,14 +24,16 @@ export class HomeScreen extends Component {
           contentContainerStyle={styles.taskContainer}
           scrollEnabled={true}
         >
-          <Text style={styles.taskPlaceholder}>Task placeholder 1</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 2</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 3</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 4</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 5</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 6</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 7</Text>
-          <Text style={styles.taskPlaceholder}>Task placeholder 8</Text>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
         </ScrollView>
       );
     } else if (this.state.displayedTab === "completed") {
@@ -39,30 +42,15 @@ export class HomeScreen extends Component {
           contentContainerStyle={styles.taskContainer}
           scrollEnabled={true}
         >
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 1
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 2
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 3
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 4
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 5
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 6
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 7
-          </Text>
-          <Text style={styles.taskPlaceholder}>
-            Completed task placeholder 8
-          </Text>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
+          <Task/>
         </ScrollView>
       );
     }
@@ -128,11 +116,10 @@ export const styles = StyleSheet.create({
     borderWidth: 4
   },
   taskContainer: {
-    flex: 1,
     padding: 1,
     borderColor: "red",
     borderWidth: 3,
-    alignItems: "center"
+    alignItems: "center",
   },
   navBarBottom: {
     flex: 1,
