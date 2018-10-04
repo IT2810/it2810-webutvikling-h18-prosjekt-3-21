@@ -23,6 +23,7 @@ export class HomeScreen extends Component {
         <ScrollView
           contentContainerStyle={styles.taskContainer}
           scrollEnabled={true}
+          alwaysBounceVertical={false}
         >
           <Task/>
           <Task/>
@@ -112,14 +113,15 @@ export const styles = StyleSheet.create({
     flex: 7,
     width: "100%",
     margin: 4,
-    borderColor: "black",
-    borderWidth: 4
+    borderTopColor: "#888",
+    borderTopWidth: 2,
+    borderBottomColor: "#888",
+    borderBottomWidth: 2
   },
   taskContainer: {
     padding: 1,
-    borderColor: "red",
-    borderWidth: 3,
-    alignItems: "center",
+    alignItems: "center"
+    
   },
   navBarBottom: {
     flex: 1,

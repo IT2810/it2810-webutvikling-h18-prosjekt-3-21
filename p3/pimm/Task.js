@@ -5,7 +5,7 @@ import {Alert, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, Touc
 export class Task extends React.Component {
     
     state = {
-        taskdescription: 'This is a task description how long must it beTis is a task description how long must ita task description how long must it beTis is a task description how long must ita task description how long must it beTis is a task description how long must ita task description how long must it beTis is a task description how long must ita task description how long must it beTis is a task description how long must it be'
+        taskdescription: 'Hent melk'
     };
 
     _onPressButton = () => {
