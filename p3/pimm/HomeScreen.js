@@ -25,7 +25,7 @@ export class HomeScreen extends Component {
           scrollEnabled={true}
           alwaysBounceVertical={false}
         >
-          <Task/>
+          <Task taskdescription="test"/>
           <Task/>
           <Task/>
           <Task/>
