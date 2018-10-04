@@ -3,7 +3,11 @@ import {Alert, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, Touc
 
 
 export class Task extends React.Component {
-    
+    constructor(props) {
+      super(props);
+      this.state.taskdescription = props.taskdescription;
+    }
+
     state = {
         taskdescription: 'Hent melk'
     };
