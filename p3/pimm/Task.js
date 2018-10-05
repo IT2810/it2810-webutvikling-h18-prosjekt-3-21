@@ -21,7 +21,8 @@ export class Task extends React.Component {
   }
 
   state = {
-    taskdescription: "Hent melk"
+    taskdescription: "Hent melk",
+    pressed: false
   };
 
   componentDidMount() {
@@ -48,22 +49,67 @@ export class Task extends React.Component {
     _retrieveData();
   }
 
-  _onPressButton = () => {
-    Alert.alert("yeleo");
+  _onPressCompleteTask = () => {
+    Alert.alert("Complete task");
+  };
+
+  _onPressDeleteTask = () => {
+    Alert.alert("Delete task");
+  };
+
+  _onPressEditTask = () => {
+    Alert.alert("Edit task");
+  };
+
+  _toggleTaskOptions = () => {
+    let s = !this.state.pressed;
+    this.setState({ pressed: s });
   };
 
   render() {
-    return (
-      <View style={styles.task}>
-        <Text style={styles.taskdescription}>{this.state.taskdescription}</Text>
-        <TouchableOpacity onPress={this._onPressButton}>
-          <Image
-            source={require("./assets/acceptbutton.png")}
-            style={styles.acceptbutton}
-          />
+    let taskItem;
+    if (this.state.pressed === false) {
+      taskItem = (
+        <TouchableOpacity onPress={this._toggleTaskOptions} style={styles.task}>
+          <Text style={styles.taskdescription}>
+            {this.state.taskdescription}
+          </Text>
         </TouchableOpacity>
-      </View>
-    );
+      );
+    } else {
+      taskItem = (
+        <View style={styles.taskoptions}>
+          <TouchableOpacity onPress={this._toggleTaskOptions}>
+            <Image
+              source={require("./assets/back.png")}
+              style={styles.taskoptionbutton}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this._onPressEditTask}>
+            <Image
+              source={require("./assets/edit.png")}
+              style={styles.taskoptionbutton}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this._onPressDeleteTask}>
+            <Image
+              source={require("./assets/delete.png")}
+              style={styles.taskoptionbutton}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this._onPressCompleteTask}>
+            <Image
+              source={require("./assets/accept.png")}
+              style={styles.taskoptionbutton}
+            />
+          </TouchableOpacity>
+        </View>
+      );
+    }
+    return taskItem;
   }
 }
 
@@ -82,7 +128,21 @@ const styles = StyleSheet.create({
     paddingRight: 10
   },
 
-  acceptbutton: {
+  taskoptions: {
+    flexDirection: "row",
+    backgroundColor: "#eee",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    height: 100,
+    borderColor: "#999",
+    borderWidth: 3,
+    borderRadius: 5,
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+
+  taskoptionbutton: {
     width: 48,
     height: 48
   },

@@ -13,7 +13,8 @@ export class EditTaskScreen extends Component {
   constructor(props) {
     super(props);
     this.state.parent = props.parent;
-    this.state.taskDescription = "";
+    this.state.taskDescription;
+    this.state.taskType = "regTask";
   }
   state = {};
   render() {
@@ -35,6 +36,18 @@ export class EditTaskScreen extends Component {
             placeholderTextColor={"gray"}
             onChangeText={text => this.setState({ taskDescriptions: text })}
           />
+          <View style={stylesEditScreen.pickerField}>
+            <Text>Pick task type:</Text>
+            <Picker
+              selectedValue={this.state.taskType}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ taskType: itemValue })
+              }
+            >
+              <Picker.Item label="Regular" value="regTask" />
+              <Picker.Item label="Steps" value="stepTask" />
+            </Picker>
+          </View>
         </View>
         <View style={styles.navBarBottom}>
           <TouchableOpacity onPress={this.onPressBack} style={styles.button}>
@@ -64,5 +77,8 @@ export const stylesEditScreen = StyleSheet.create({
   textInputField: {
     height: 60,
     margin: 10
+  },
+  pickerField: {
+    margin: 30
   }
 });
