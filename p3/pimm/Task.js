@@ -26,14 +26,6 @@ export class Task extends React.Component {
   };
 
   componentDidMount() {
-    _storeData = async () => {
-      try {
-        await AsyncStorage.setItem("Task1", "Hallo der du!");
-      } catch (error) {
-        Alert.alert("Error saving data!");
-      }
-    };
-
     _retrieveData = async () => {
       try {
         const value = await AsyncStorage.getItem("Task1");
@@ -45,7 +37,6 @@ export class Task extends React.Component {
       }
     };
 
-    _storeData();
     _retrieveData();
   }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  AsyncStorage,
   Text,
   View,
   TouchableOpacity,
@@ -16,6 +17,7 @@ export class EditTaskScreen extends Component {
     this.state.taskDescription;
     this.state.taskType = "regTask";
   }
+
   state = {};
   render() {
     return (
@@ -34,7 +36,7 @@ export class EditTaskScreen extends Component {
             blurOnSubmit={true}
             multiline={true}
             placeholderTextColor={"gray"}
-            onChangeText={text => this.setState({ taskDescriptions: text })}
+            onChangeText={text => this.setState({ taskDescription: text })}
           />
           <View style={stylesEditScreen.pickerField}>
             <Text>Pick task type:</Text>
@@ -70,6 +72,16 @@ export class EditTaskScreen extends Component {
 
   onPressBack = () => {
     this.state.parent.handlePressBack();
+  };
+
+  onPressSaveTask = async () => {
+    try {
+      console.log("test: " + this.state.taskDescription);
+      await AsyncStorage.setItem("Task1", this.state.taskDescription);
+    } catch (error) {
+      console.log(error);
+      alert("Error saving data!");
+    }
   };
 }
 
