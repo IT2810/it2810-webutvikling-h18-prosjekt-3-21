@@ -6,7 +6,9 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import {Task} from "./Task";
+import { Task } from "./Task";
+import { TasksToDo } from "./TasksToDo";
+import { TasksCompleted } from "./TasksCompleted";
 
 export class HomeScreen extends Component {
   constructor(props) {
@@ -19,41 +21,9 @@ export class HomeScreen extends Component {
   render() {
     let tasks;
     if (this.state.displayedTab === "todo") {
-      tasks = (
-        <ScrollView
-          contentContainerStyle={styles.taskContainer}
-          scrollEnabled={true}
-          alwaysBounceVertical={false}
-        >
-          <Task taskdescription="test"/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-        </ScrollView>
-      );
+      tasks = <TasksToDo />;
     } else if (this.state.displayedTab === "completed") {
-      tasks = (
-        <ScrollView
-          contentContainerStyle={styles.taskContainer}
-          scrollEnabled={true}
-        >
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-        </ScrollView>
-      );
+      tasks = <TasksCompleted />;
     }
     return (
       <View style={styles.container}>
@@ -121,7 +91,6 @@ export const styles = StyleSheet.create({
   taskContainer: {
     padding: 1,
     alignItems: "center"
-    
   },
   navBarBottom: {
     flex: 1,
