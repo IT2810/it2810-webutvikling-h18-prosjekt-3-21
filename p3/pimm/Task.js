@@ -6,11 +6,13 @@ export class Task extends React.Component {
     constructor(props) {
       super(props);
       this.state.taskdescription = props.taskdescription;
+      this.state.taskid = props.taskid;
     }
 
     state = {
         taskdescription: 'Hent melk',
-        pressed: false
+        pressed: false,
+        taskid: ''
     };
 
     _onPressCompleteTask = () => {
