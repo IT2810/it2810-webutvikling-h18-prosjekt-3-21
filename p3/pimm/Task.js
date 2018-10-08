@@ -28,16 +28,16 @@ export class Task extends React.Component {
   componentDidMount() {
     _retrieveData = async () => {
       try {
-        const result = await AsyncStorage.getItem("Task1");
+        const result = await AsyncStorage.getItem("tasks");
         if (result != null) {
-          let obj = JSON.parse(result);
-          for (var key in obj) {
-            if (obj.hasOwnProperty(key)) {
-              //console.log(key, obj[key]);
-              console.log(obj.taskDesc);
-              console.log(obj.type);
+          let tasksArray = JSON.parse(result);
+          for (var key in tasksArray) {
+            if (tasksArray.hasOwnProperty(key)) {
+              console.log("id: ", tasksArray[key].id);
+              //console.log(tasksArray[0].taskDesc);
+
               this.setState({
-                taskdescription: obj.taskDesc
+                //taskdescription: tasksArray[0].taskDesc
               });
             }
           }

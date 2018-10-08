@@ -16,6 +16,29 @@ export class EditTaskScreen extends Component {
     this.state.parent = props.parent;
     this.state.taskDescription;
     this.state.taskType = "regTask";
+    this.state.tasksArray = [];
+  }
+
+  componentDidMount() {
+    _retrieveData = async () => {
+      try {
+        const result = await AsyncStorage.getItem("tasks");
+        if (result != null) {
+          let taskArr = JSON.parse(result);
+          console.log("Length of array: ", taskArr.length);
+          this.setState({
+            tasksArray: taskArr
+          });
+        } else {
+          console.log("result is null");
+        }
+      } catch (error) {
+        console.log(error);
+        Alert.alert("Error retrieving data");
+      }
+    };
+
+    _retrieveData();
   }
 
   state = {};
@@ -76,12 +99,15 @@ export class EditTaskScreen extends Component {
 
   onPressSaveTask = async () => {
     try {
-      console.log("test: " + this.state.taskDescription);
       const task = {
+        id: this.state.tasksArray.length + 1,
         taskDesc: this.state.taskDescription,
         type: this.state.taskType
       };
-      await AsyncStorage.setItem("Task1", JSON.stringify(task));
+      let tasks = this.state.tasksArray;
+      tasks.push(task);
+      console.log("tasks: " + tasks);
+      await AsyncStorage.setItem("tasks", JSON.stringify(tasks));
     } catch (error) {
       console.log(error);
       alert("Error saving data!");

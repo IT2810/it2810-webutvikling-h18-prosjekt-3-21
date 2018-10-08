@@ -1,21 +1,47 @@
 import React, { Component } from "react";
 import {
+  AsyncStorage,
   StyleSheet,
   Text,
   View,
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import {Task} from "./Task";
+import { Task } from "./Task";
 
 export class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state.parent = props.parent;
+    this.state.tasksArray = [];
   }
   state = {
     displayedTab: "todo"
   };
+
+  componentDidMount() {
+    console.log("HomeScreen");
+    _retrieveData = async () => {
+      try {
+        const result = await AsyncStorage.getItem("tasks");
+        if (result != null) {
+          let taskArr = JSON.parse(result);
+          console.log("Length of array: ", taskArr.length);
+          this.setState({
+            tasksArray: taskArr
+          });
+        } else {
+          console.log("result is null");
+        }
+      } catch (error) {
+        console.log(error);
+        Alert.alert("Error retrieving data");
+      }
+    };
+
+    _retrieveData();
+  }
+
   render() {
     let tasks;
     if (this.state.displayedTab === "todo") {
@@ -25,16 +51,9 @@ export class HomeScreen extends Component {
           scrollEnabled={true}
           alwaysBounceVertical={false}
         >
-          <Task taskdescription="test"/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
+          {this.state.tasksArray.map(task => (
+            <Task taskdescription="pinade" key={task.id} />
+          ))}
         </ScrollView>
       );
     } else if (this.state.displayedTab === "completed") {
@@ -43,15 +62,15 @@ export class HomeScreen extends Component {
           contentContainerStyle={styles.taskContainer}
           scrollEnabled={true}
         >
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
-          <Task/>
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
         </ScrollView>
       );
     }
@@ -121,7 +140,6 @@ export const styles = StyleSheet.create({
   taskContainer: {
     padding: 1,
     alignItems: "center"
-    
   },
   navBarBottom: {
     flex: 1,
