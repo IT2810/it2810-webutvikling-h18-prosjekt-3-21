@@ -21,17 +21,38 @@ export class EditTaskScreen extends Component {
 
   componentDidMount() {
     _retrieveData = async () => {
+      let taskArr = [];
       try {
-        const result = await AsyncStorage.getItem("tasks");
-        if (result != null) {
-          let taskArr = JSON.parse(result);
-          console.log("Length of array: ", taskArr.length);
+        AsyncStorage.getAllKeys((err, keys) => {
+          AsyncStorage.multiGet(keys, (err, stores) => {
+            stores.map((result, i, store) => {
+              console.log("key: ", store[i][0]);
+              console.log("value: ", store[i][1]);
+              //for (let key in store) {
+              // console.log(store[i][key]);
+              //}
+              taskArr.push(store[i][1]);
+              console.log(taskArr);
+            });
+          });
+        }).then(() => {
           this.setState({
             tasksArray: taskArr
+          });
+          console.log("heheheheheeheh");
+        });
+        /*
+        const result = await AsyncStorage.getItem("tasks");
+        if (result != null) {
+          //let taskArr = JSON.parse(result);
+          //console.log("Length of array: ", taskArr.length);
+          this.setState({
+            //tasksArray: taskArr
           });
         } else {
           console.log("result is null");
         }
+        */
       } catch (error) {
         console.log(error);
         Alert.alert("Error retrieving data");
@@ -100,14 +121,14 @@ export class EditTaskScreen extends Component {
   onPressSaveTask = async () => {
     try {
       const task = {
-        id: this.state.tasksArray.length + 1,
+        id: "task " + (this.state.tasksArray.length + 1),
         taskDesc: this.state.taskDescription,
         type: this.state.taskType
       };
-      let tasks = this.state.tasksArray;
-      tasks.push(task);
-      console.log("tasks: " + tasks);
-      await AsyncStorage.setItem("tasks", JSON.stringify(tasks));
+      //let tasks = this.state.tasksArray;
+      //tasks.push(task);
+      //console.log("tasks: " + tasks);
+      await AsyncStorage.setItem(task.id, JSON.stringify(task));
     } catch (error) {
       console.log(error);
       alert("Error saving data!");
