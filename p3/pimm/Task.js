@@ -27,32 +27,6 @@ export class Task extends React.Component {
     pressed: false
   };
 
-  componentDidMount() {
-    /*
-    _retrieveData = async () => {
-      try {
-        const result = await AsyncStorage.getItem("tasks");
-        if (result != null) {
-          let tasksArray = JSON.parse(result);
-          for (var key in tasksArray) {
-            if (tasksArray.hasOwnProperty(key)) {
-              console.log("id: ", tasksArray[key].id);
-
-              this.setState({
-              });
-            }
-          }
-        }
-      } catch (error) {
-        console.log(error);
-        Alert.alert("Error retrieving data");
-      }
-    };
-
-    _retrieveData();
-    */
-  }
-
   _onPressCompleteTask = () => {
     Alert.alert("Complete task");
   };
@@ -76,7 +50,6 @@ export class Task extends React.Component {
       taskItem = (
         <TouchableOpacity onPress={this._toggleTaskOptions} style={styles.task}>
           <Text style={styles.taskdescription}>
-            {this.state.id}
             {this.state.taskdescription}
           </Text>
         </TouchableOpacity>
