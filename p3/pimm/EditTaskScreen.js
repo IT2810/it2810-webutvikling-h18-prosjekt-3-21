@@ -77,7 +77,11 @@ export class EditTaskScreen extends Component {
   onPressSaveTask = async () => {
     try {
       console.log("test: " + this.state.taskDescription);
-      await AsyncStorage.setItem("Task1", this.state.taskDescription);
+      const task = {
+        taskDesc: this.state.taskDescription,
+        type: this.state.taskType
+      };
+      await AsyncStorage.setItem("Task1", JSON.stringify(task));
     } catch (error) {
       console.log(error);
       alert("Error saving data!");

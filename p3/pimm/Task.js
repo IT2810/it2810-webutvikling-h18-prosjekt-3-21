@@ -28,11 +28,17 @@ export class Task extends React.Component {
   componentDidMount() {
     _retrieveData = async () => {
       try {
-        const value = await AsyncStorage.getItem("Task1");
-        if (value != null) {
-          console.log(value);
+        const result = await AsyncStorage.getItem("Task1");
+        if (result != null) {
+          let obj = JSON.parse(result);
+          for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+              console.log(key, obj[key]);
+            }
+          }
         }
       } catch (error) {
+        console.log(error);
         Alert.alert("Error retrieving data");
       }
     };
