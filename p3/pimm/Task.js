@@ -33,7 +33,12 @@ export class Task extends React.Component {
           let obj = JSON.parse(result);
           for (var key in obj) {
             if (obj.hasOwnProperty(key)) {
-              console.log(key, obj[key]);
+              //console.log(key, obj[key]);
+              console.log(obj.taskDesc);
+              console.log(obj.type);
+              this.setState({
+                taskdescription: obj.taskDesc
+              });
             }
           }
         }
