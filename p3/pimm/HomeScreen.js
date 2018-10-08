@@ -20,12 +20,17 @@ export class HomeScreen extends Component {
   };
 
   componentDidMount() {
-    console.log("HomeScreen");
     _retrieveData = async () => {
       try {
         const result = await AsyncStorage.getItem("tasks");
         if (result != null) {
           let taskArr = JSON.parse(result);
+          for (var key in taskArr) {
+            console.log("id: ", taskArr[key].id);
+            console.log(taskArr[key].taskDesc);
+
+            this.setState({});
+          }
           console.log("Length of array: ", taskArr.length);
           this.setState({
             tasksArray: taskArr
@@ -35,7 +40,7 @@ export class HomeScreen extends Component {
         }
       } catch (error) {
         console.log(error);
-        Alert.alert("Error retrieving data");
+        alert("Error retrieving data");
       }
     };
 
@@ -52,7 +57,7 @@ export class HomeScreen extends Component {
           alwaysBounceVertical={false}
         >
           {this.state.tasksArray.map(task => (
-            <Task taskdescription="pinade" key={task.id} />
+            <Task id={task.id} taskdescription={task.taskDesc} key={task.id} />
           ))}
         </ScrollView>
       );

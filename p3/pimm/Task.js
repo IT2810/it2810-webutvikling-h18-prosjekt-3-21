@@ -17,15 +17,18 @@ import {
 export class Task extends React.Component {
   constructor(props) {
     super(props);
+    this.state.id = props.id;
     this.state.taskdescription = props.taskdescription;
   }
 
   state = {
+    id: 0,
     taskdescription: "Hent melk",
     pressed: false
   };
 
   componentDidMount() {
+    /*
     _retrieveData = async () => {
       try {
         const result = await AsyncStorage.getItem("tasks");
@@ -34,10 +37,8 @@ export class Task extends React.Component {
           for (var key in tasksArray) {
             if (tasksArray.hasOwnProperty(key)) {
               console.log("id: ", tasksArray[key].id);
-              //console.log(tasksArray[0].taskDesc);
 
               this.setState({
-                //taskdescription: tasksArray[0].taskDesc
               });
             }
           }
@@ -49,6 +50,7 @@ export class Task extends React.Component {
     };
 
     _retrieveData();
+    */
   }
 
   _onPressCompleteTask = () => {
@@ -74,6 +76,7 @@ export class Task extends React.Component {
       taskItem = (
         <TouchableOpacity onPress={this._toggleTaskOptions} style={styles.task}>
           <Text style={styles.taskdescription}>
+            {this.state.id}
             {this.state.taskdescription}
           </Text>
         </TouchableOpacity>
