@@ -8,6 +8,8 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Task } from "./Task";
+import { TasksToDo } from "./TasksToDo";
+import { TasksCompleted } from "./TasksCompleted";
 
 export class HomeScreen extends Component {
   constructor(props) {
@@ -26,10 +28,10 @@ export class HomeScreen extends Component {
       AsyncStorage.getAllKeys((err, keys) => {
         AsyncStorage.multiGet(keys, (err, stores) => {
           stores.map((result, i, store) => {
-            console.log("key: ", store[i][0]);
-            console.log("value: ", store[i][1]);
+            //console.log("key: ", store[i][0]);
+            //console.log("value: ", store[i][1]);
             taskArr.push(JSON.parse(store[i][1]));
-            console.log(taskArr);
+            //console.log(taskArr);
           });
         }).then(() => {
           this.setState({
@@ -55,39 +57,15 @@ export class HomeScreen extends Component {
   render() {
     let tasks;
     if (this.state.displayedTab === "todo") {
+      console.log("Todooo");
       tasks = (
-        <ScrollView
-          contentContainerStyle={styles.taskContainer}
-          scrollEnabled={true}
-          alwaysBounceVertical={false}
-        >
-          {this.state.tasksArray.map(task => (
-            <Task
-              id={task.id}
-              taskdescription={task.taskDesc}
-              key={task.id}
-              parent={this}
-            />
-          ))}
-        </ScrollView>
+        <TasksToDo
+          tasksArray={this.state.tasksArray}
+          parent={this.state.parent}
+        />
       );
     } else if (this.state.displayedTab === "completed") {
-      tasks = (
-        <ScrollView
-          contentContainerStyle={styles.taskContainer}
-          scrollEnabled={true}
-        >
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-          <Task />
-        </ScrollView>
-      );
+      tasks = <TasksCompleted />;
     }
     return (
       <View style={styles.container}>
