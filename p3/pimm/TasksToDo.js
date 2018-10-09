@@ -46,7 +46,6 @@ export class TasksToDo extends Component {
   }
 
   render() {
-    console.log("TasksToDo: ", this.state.tasksArray);
     return (
       <ScrollView
         contentContainerStyle={styles.taskContainer}
