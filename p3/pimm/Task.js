@@ -30,7 +30,13 @@ export class Task extends React.Component {
   };
 
   _onPressCompleteTask = () => {
-    Alert.alert("Complete task");
+    AsyncStorage.getItem(this.state.id, (err, result) => {
+      let task = JSON.parse(result);
+      task.isCompleted = true;
+      AsyncStorage.setItem(this.state.id, JSON.stringify(task));
+    }).then(() => {
+      this.state.parent.updateTasks();
+    });
   };
 
   _onPressDeleteTask = () => {

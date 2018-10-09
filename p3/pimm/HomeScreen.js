@@ -28,7 +28,7 @@ export class HomeScreen extends Component {
   render() {
     let tasks;
     if (this.state.displayedTab === "todo") {
-      tasks = <TasksToDo tasksArray={this.state.tasksArray} />;
+      tasks = <TasksToDo />;
     } else if (this.state.displayedTab === "completed") {
       tasks = <TasksCompleted />;
     }

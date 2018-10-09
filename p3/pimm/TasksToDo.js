@@ -20,10 +20,10 @@ export class TasksToDo extends Component {
       AsyncStorage.getAllKeys((err, keys) => {
         AsyncStorage.multiGet(keys, (err, stores) => {
           stores.map((result, i, store) => {
-            //console.log("key: ", store[i][0]);
-            //console.log("value: ", store[i][1]);
-            taskArr.push(JSON.parse(store[i][1]));
-            //console.log(taskArr);
+            let task = JSON.parse(store[i][1]);
+            if (task.isCompleted === false) {
+              taskArr.push(task);
+            }
           });
         }).then(() => {
           this.setState({
@@ -38,6 +38,10 @@ export class TasksToDo extends Component {
   };
 
   componentDidMount() {
+    this._retrieveData();
+  }
+
+  updateTasks() {
     this._retrieveData();
   }
 

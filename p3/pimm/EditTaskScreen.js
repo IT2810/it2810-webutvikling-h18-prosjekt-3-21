@@ -104,7 +104,7 @@ export class EditTaskScreen extends Component {
       const task = {
         id: "task " + (this.state.tasksArray.length + 1),
         taskDesc: this.state.taskDescription,
-        type: this.state.taskType
+        isCompleted: false
       };
       await AsyncStorage.setItem(task.id, JSON.stringify(task));
     } catch (error) {
