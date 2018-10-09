@@ -15,40 +15,11 @@ export class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state.parent = props.parent;
-    this.state.tasksArray = [];
   }
   state = {
     displayedTab: "todo",
-    tasksArray: null
+    tasksArray: []
   };
-
-  _retrieveData = async () => {
-    let taskArr = [];
-    try {
-      AsyncStorage.getAllKeys((err, keys) => {
-        AsyncStorage.multiGet(keys, (err, stores) => {
-          stores.map((result, i, store) => {
-            //console.log("key: ", store[i][0]);
-            //console.log("value: ", store[i][1]);
-            taskArr.push(JSON.parse(store[i][1]));
-            //console.log(taskArr);
-          });
-        }).then(() => {
-          this.setState({
-            tasksArray: taskArr
-          });
-          console.log("HomeScreen: ", this.state.tasksArray);
-        });
-      });
-    } catch (error) {
-      console.log(error);
-      alert("Error retrieving data");
-    }
-  };
-
-  componentDidMount() {
-    this._retrieveData();
-  }
 
   updateTasks() {
     this._retrieveData();
@@ -57,13 +28,7 @@ export class HomeScreen extends Component {
   render() {
     let tasks;
     if (this.state.displayedTab === "todo") {
-      console.log("Todooo");
-      tasks = (
-        <TasksToDo
-          tasksArray={this.state.tasksArray}
-          parent={this.state.parent}
-        />
-      );
+      tasks = <TasksToDo tasksArray={this.state.tasksArray} />;
     } else if (this.state.displayedTab === "completed") {
       tasks = <TasksCompleted />;
     }

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, AsyncStorage } from "react-native";
 import { styles } from "./HomeScreen";
 import { Task } from "./Task";
 
 export class TasksToDo extends Component {
   constructor(props) {
     super(props);
-    this.state.tasksArray = props.tasksArray;
     this.state.parent = props.parent;
   }
 
@@ -14,6 +13,33 @@ export class TasksToDo extends Component {
     tasksArray: [],
     parent: null
   };
+
+  _retrieveData = async () => {
+    let taskArr = [];
+    try {
+      AsyncStorage.getAllKeys((err, keys) => {
+        AsyncStorage.multiGet(keys, (err, stores) => {
+          stores.map((result, i, store) => {
+            //console.log("key: ", store[i][0]);
+            //console.log("value: ", store[i][1]);
+            taskArr.push(JSON.parse(store[i][1]));
+            //console.log(taskArr);
+          });
+        }).then(() => {
+          this.setState({
+            tasksArray: taskArr
+          });
+        });
+      });
+    } catch (error) {
+      console.log(error);
+      alert("Error retrieving data");
+    }
+  };
+
+  componentDidMount() {
+    this._retrieveData();
+  }
 
   render() {
     console.log("TasksToDo: ", this.state.tasksArray);
