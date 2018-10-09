@@ -19,11 +19,13 @@ export class Task extends React.Component {
     super(props);
     this.state.id = props.id;
     this.state.taskdescription = props.taskdescription;
+    this.state.parent = props.parent;
   }
 
   state = {
     id: 0,
     taskdescription: "Hent melk",
+    parent: null,
     pressed: false
   };
 
@@ -32,7 +34,8 @@ export class Task extends React.Component {
   };
 
   _onPressDeleteTask = () => {
-    Alert.alert("Delete task");
+    AsyncStorage.removeItem(this.state.id);
+    this.state.parent.updateTasks();
   };
 
   _onPressEditTask = () => {

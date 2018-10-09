@@ -16,35 +16,40 @@ export class HomeScreen extends Component {
     this.state.tasksArray = [];
   }
   state = {
-    displayedTab: "todo"
+    displayedTab: "todo",
+    tasksArray: null
+  };
+
+  _retrieveData = async () => {
+    let taskArr = [];
+    try {
+      AsyncStorage.getAllKeys((err, keys) => {
+        AsyncStorage.multiGet(keys, (err, stores) => {
+          stores.map((result, i, store) => {
+            console.log("key: ", store[i][0]);
+            console.log("value: ", store[i][1]);
+            taskArr.push(JSON.parse(store[i][1]));
+            console.log(taskArr);
+          });
+        }).then(() => {
+          this.setState({
+            tasksArray: taskArr
+          });
+          console.log("HomeScreen: ", this.state.tasksArray);
+        });
+      });
+    } catch (error) {
+      console.log(error);
+      alert("Error retrieving data");
+    }
   };
 
   componentDidMount() {
-    _retrieveData = async () => {
-      let taskArr = [];
-      try {
-        AsyncStorage.getAllKeys((err, keys) => {
-          AsyncStorage.multiGet(keys, (err, stores) => {
-            stores.map((result, i, store) => {
-              console.log("key: ", store[i][0]);
-              console.log("value: ", store[i][1]);
-              taskArr.push(JSON.parse(store[i][1]));
-              console.log(taskArr);
-            });
-          }).then(() => {
-            this.setState({
-              tasksArray: taskArr
-            });
-            console.log("HomeScreen: ", this.state.tasksArray);
-          });
-        });
-      } catch (error) {
-        console.log(error);
-        alert("Error retrieving data");
-      }
-    };
+    this._retrieveData();
+  }
 
-    _retrieveData();
+  updateTasks() {
+    this._retrieveData();
   }
 
   render() {
@@ -57,7 +62,12 @@ export class HomeScreen extends Component {
           alwaysBounceVertical={false}
         >
           {this.state.tasksArray.map(task => (
-            <Task id={task.id} taskdescription={task.taskDesc} key={task.id} />
+            <Task
+              id={task.id}
+              taskdescription={task.taskDesc}
+              key={task.id}
+              parent={this}
+            />
           ))}
         </ScrollView>
       );
