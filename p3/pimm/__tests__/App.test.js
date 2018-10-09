@@ -5,5 +5,6 @@ import renderer from "react-test-renderer";
 
 test("renders correctly", () => {
   const tree = renderer.create(<App />).toJSON();
+  expect(tree.type).toEqual("View");
   expect(tree).toMatchSnapshot();
 });
