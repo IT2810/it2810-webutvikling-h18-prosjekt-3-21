@@ -28,9 +28,9 @@ export class HomeScreen extends Component {
   render() {
     let tasks;
     if (this.state.displayedTab === "todo") {
-      tasks = <TasksToDo />;
+      tasks = <TasksToDo parent={this} />;
     } else if (this.state.displayedTab === "completed") {
-      tasks = <TasksCompleted />;
+      tasks = <TasksCompleted parent={this} />;
     }
     return (
       <View style={styles.container}>
@@ -67,7 +67,7 @@ export class HomeScreen extends Component {
     this.setState({ displayedTab: "completed" });
   };
   onPressAddTask = () => {
-    this.state.parent.handleEditTask();
+    this.state.parent.handleAddTask();
   };
 }
 export const styles = StyleSheet.create({

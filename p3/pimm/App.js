@@ -10,17 +10,23 @@ export default class App extends React.Component {
   state = {
     currentTab: "HomeScreen"
   };
-  handleEditTask = () => {
-    this.setState({ currentTab: "EditTaskScreen" });
+  handleAddTask = () => {
+    this.setState({ currentTab: "AddTaskScreen" });
   };
   handlePressBack = () => {
     this.setState({ currentTab: "HomeScreen" });
+  };
+  handleEditTask = (id, desc) => {
+    displayedScreen = (
+      <EditTaskScreen parent={this} taskid={id} taskdesc={desc} />
+    );
+    this.setState({ currentTab: "EditTaskScreen" });
   };
 
   render() {
     if (this.state.currentTab === "HomeScreen") {
       displayedScreen = <HomeScreen parent={this} />;
-    } else if (this.state.currentTab === "EditTaskScreen") {
+    } else if (this.state.currentTab === "AddTaskScreen") {
       displayedScreen = <EditTaskScreen parent={this} />;
     }
     return displayedScreen;

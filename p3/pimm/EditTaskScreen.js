@@ -14,7 +14,8 @@ export class EditTaskScreen extends Component {
   constructor(props) {
     super(props);
     this.state.parent = props.parent;
-    this.state.taskDescription;
+    this.state.taskDescription = props.taskdesc;
+    this.state.taskID = props.taskid;
     this.state.taskType = "regTask";
     this.state.tasksArray = [];
   }
@@ -59,6 +60,7 @@ export class EditTaskScreen extends Component {
             style={stylesEditScreen.textInputField}
             placeholder="Add task description here"
             blurOnSubmit={true}
+            value={this.state.taskDescription}
             multiline={true}
             placeholderTextColor={"gray"}
             onChangeText={text => this.setState({ taskDescription: text })}
@@ -101,11 +103,19 @@ export class EditTaskScreen extends Component {
 
   onPressSaveTask = async () => {
     try {
-      const task = {
-        id: "task " + (this.state.tasksArray.length + 1),
-        taskDesc: this.state.taskDescription,
-        isCompleted: false
-      };
+      if (typeof this.state.taskID != "undefined") {
+        var task = {
+          id: this.state.taskID,
+          taskDesc: this.state.taskDescription,
+          isCompleted: false
+        };
+      } else {
+        var task = {
+          id: "task " + (this.state.tasksArray.length + 1),
+          taskDesc: this.state.taskDescription,
+          isCompleted: false
+        };
+      }
       await AsyncStorage.setItem(task.id, JSON.stringify(task));
     } catch (error) {
       console.log(error);

@@ -45,7 +45,11 @@ export class Task extends React.Component {
   };
 
   _onPressEditTask = () => {
-    Alert.alert("Edit task");
+    // Runs it up to App.js, via HomeScreen.js and TasksToDo.js
+    this.state.parent.state.parent.state.parent.handleEditTask(
+      this.state.id,
+      this.state.taskdescription
+    );
   };
 
   _toggleTaskOptions = () => {
