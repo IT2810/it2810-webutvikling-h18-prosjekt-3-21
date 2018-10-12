@@ -21,8 +21,10 @@ export class TasksToDo extends Component {
         AsyncStorage.multiGet(keys, (err, stores) => {
           stores.map((result, i, store) => {
             let task = JSON.parse(store[i][1]);
-            if (task.isCompleted === false) {
-              taskArr.push(task);
+            if (task !== null) {
+              if (task.isCompleted === false) {
+                taskArr.push(task);
+              }
             }
           });
         }).then(() => {
@@ -46,6 +48,7 @@ export class TasksToDo extends Component {
   }
 
   render() {
+    console.log(this.state.tasksArray);
     return (
       <ScrollView
         contentContainerStyle={styles.taskContainer}

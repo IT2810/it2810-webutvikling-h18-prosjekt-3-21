@@ -21,6 +21,7 @@ export class EditTaskScreen extends Component {
   }
 
   componentDidMount() {
+    //AsyncStorage.clear();
     _retrieveData = async () => {
       let taskArr = [];
       try {
@@ -102,21 +103,45 @@ export class EditTaskScreen extends Component {
   };
 
   onPressSaveTask = async () => {
+    let result = {};
+    let counter;
     try {
-      if (typeof this.state.taskID != "undefined") {
-        var task = {
-          id: this.state.taskID,
-          taskDesc: this.state.taskDescription,
-          isCompleted: false
-        };
-      } else {
-        var task = {
-          id: "task " + (this.state.tasksArray.length + 1),
-          taskDesc: this.state.taskDescription,
-          isCompleted: false
-        };
-      }
-      await AsyncStorage.setItem(task.id, JSON.stringify(task));
+      AsyncStorage.getItem("counter")
+        .then(result => {
+          counter = result;
+          console.log("counter: ", counter);
+          // rest of script
+        })
+        .then(() => {
+          console.log("Retreived from async, counter:", counter);
+          if (typeof counter == "undefined" || typeof counter == "null") {
+            console.log("counter is not defined or null");
+            counter = 0;
+          } else {
+            counter = parseInt(counter);
+            counter += 1;
+            console.log("counter incremented");
+          }
+          if (typeof this.state.taskID != "undefined") {
+            var task = {
+              id: this.state.taskID,
+              taskDesc: this.state.taskDescription,
+              isCompleted: false
+            };
+          } else {
+            var task = {
+              id: counter,
+              taskDesc: this.state.taskDescription,
+              isCompleted: false
+            };
+            console.log("in the else", task.id);
+          }
+          task.id_str = "" + task.id;
+          AsyncStorage.setItem("counter", JSON.stringify(counter)).then(() => {
+            console.log("stores counter");
+          });
+          AsyncStorage.setItem(task.id_str, JSON.stringify(task));
+        });
     } catch (error) {
       console.log(error);
       alert("Error saving data!");
