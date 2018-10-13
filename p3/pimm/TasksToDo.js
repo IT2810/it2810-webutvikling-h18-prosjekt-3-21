@@ -57,7 +57,7 @@ export class TasksToDo extends Component {
       >
         {this.state.tasksArray.map(task => (
           <Task
-            id={task.id}
+            id={task.id_str}
             taskdescription={task.taskDesc}
             key={task.id}
             parent={this}

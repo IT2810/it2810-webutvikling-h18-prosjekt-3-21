@@ -13,23 +13,17 @@ export class TasksCompleted extends Component {
     tasksArray: [],
     parent: null
   };
-
   _retrieveData = async () => {
     let taskArr = [];
     try {
       AsyncStorage.getAllKeys((err, keys) => {
-        let taskKeys = [];
-        for (iii in keys) {
-          if (keys[iii].slice(0, 4) === "task") {
-            taskKeys.push(keys[iii]);
-          }
-        }
-        console.log("all keys", taskKeys);
-        AsyncStorage.multiGet(taskKeys, (err, stores) => {
+        AsyncStorage.multiGet(keys, (err, stores) => {
           stores.map((result, i, store) => {
             let task = JSON.parse(store[i][1]);
-            if (task.isCompleted) {
-              taskArr.push(task);
+            if (task !== null) {
+              if (task.isCompleted === true) {
+                taskArr.push(task);
+              }
             }
           });
         }).then(() => {
@@ -61,7 +55,7 @@ export class TasksCompleted extends Component {
       >
         {this.state.tasksArray.map(task => (
           <Task
-            id={task.id}
+            id={task.id_str}
             taskdescription={task.taskDesc}
             key={task.id}
             parent={this}
