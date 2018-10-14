@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "pimm",
-    "description": "This project is really great.",
+    "description": "todo manager",
     "slug": "pimm",
     "privacy": "public",
     "sdkVersion": "30.0.0",
