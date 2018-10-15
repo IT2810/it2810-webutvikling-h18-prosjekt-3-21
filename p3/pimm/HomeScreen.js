@@ -16,6 +16,7 @@ export class HomeScreen extends Component {
     super(props);
     this.state.parent = props.parent;
   }
+  
   state = {
     displayedTab: "todo",
     tasksArray: []
@@ -34,29 +35,25 @@ export class HomeScreen extends Component {
     }
     return (
       <View style={styles.container}>
-        <View style={[styles.header]}>
-          <TouchableOpacity onPress={this.onPressAddTask} style={styles.button}>
+        <View style={styles.navBarTodo}>
+          <TouchableOpacity onPress={this.onPressToDo} style={styles.button}>
             <View>
-              <Text style={styles.buttonText}>Add task</Text>
+              <Text style={styles.buttonText}>TO DO</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.onPressCompleted} style={styles.button}>
+            <View>
+              <Text style={styles.buttonText}>COMPLETE</Text>
             </View>
           </TouchableOpacity>
         </View>
         <View style={styles.mainContainer}>{tasks}</View>
-        <View style={styles.navBarBottom}>
-          <TouchableOpacity onPress={this.onPressToDo} style={styles.button}>
+          <TouchableOpacity onPress={this.onPressAddTask} style={styles.addTaskButton}>
             <View>
-              <Text style={styles.buttonText}>To do</Text>
+              <Text style={styles.addTaskText}>+</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={this.onPressCompleted}
-            style={styles.button}
-          >
-            <View>
-              <Text style={styles.buttonText}>Completed</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        
       </View>
     );
   }
@@ -75,59 +72,73 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "lightblue",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 20
   },
-  header: {
+  addtask: {
     flex: 1,
-    width: "95%",
-    marginTop: 30
+    width: "50%",
+    marginTop: 0,
   },
-  headerText: {
-    fontSize: 30,
-    height: "100%"
-  },
+
   mainContainer: {
     flex: 7,
     width: "100%",
-    margin: 4,
-    borderTopColor: "#888",
-    borderTopWidth: 2,
-    borderBottomColor: "#888",
-    borderBottomWidth: 2
+    // margin: 4,
+    // borderTopColor: "rgba(111, 111, 111, 0.4)",
+    // borderTopWidth: 5,
+    // borderBottomColor: "rgba(111, 111, 111, 0.4)",
+    // borderBottomWidth: 5
   },
+
   taskContainer: {
-    padding: 1,
-    alignItems: "center"
+    margin: 1,
+    alignItems: "center",
   },
-  navBarBottom: {
+
+  navBarTodo: {
     flex: 1,
     flexDirection: "row",
-    padding: 3,
-    marginBottom: 3
+    padding: 0
   },
   button: {
     flex: 1,
     backgroundColor: "#5176A1",
     borderColor: "black",
     width: "100%",
-    borderWidth: 3,
-    borderRadius: 15,
+    borderWidth: 1,
+    borderRadius: 0,
     alignItems: "center",
     justifyContent: "center",
-    margin: 2
+    margin: 0,
   },
-  buttonText: {
-    fontSize: 25
-  },
-  taskPlaceholder: {
-    flex: 0,
-    width: "95%",
-    height: "20%",
+
+  addTaskButton: {
+    backgroundColor: "#5176A1",
     borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 4,
-    margin: 1,
-    textAlign: "center",
-    textAlignVertical: "center"
+    width: 120,
+    height: 120,
+    borderWidth: 1,
+    borderRadius: 120,
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 0,
+    position: 'absolute',
+    bottom: -60
+  },
+
+  buttonText: {
+    fontSize: 30,
+    fontWeight: "700",
+    color: '#fff'
+  },
+
+  addTaskText: {
+    fontSize: 60, 
+    position: 'relative', 
+    bottom: 30,
+    color: '#fff',
+    fontWeight: "700",
   }
+
 });

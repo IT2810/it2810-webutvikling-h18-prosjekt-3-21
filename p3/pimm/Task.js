@@ -107,16 +107,17 @@ export class Task extends React.Component {
 const styles = StyleSheet.create({
   task: {
     flexDirection: "row",
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
     height: 100,
-    borderColor: "#999",
-    borderWidth: 3,
-    borderRadius: 5,
+    borderColor: "#aaa",
+    borderWidth: 1,
+    borderRadius: 4,
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    marginBottom: 3,
   },
 
   taskoptions: {
@@ -139,7 +140,9 @@ const styles = StyleSheet.create({
   },
 
   taskdescription: {
-    color: "#333",
-    flex: 5
+    color: "#444",
+    flex: 5,
+    fontWeight: "600",
+    fontSize: 18,
   }
 });

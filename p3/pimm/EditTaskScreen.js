@@ -48,15 +48,15 @@ export class EditTaskScreen extends Component {
   state = {};
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.button}>
+      <View style={stylesEditScreen.container}>
+        <View style={stylesEditScreen.header}>
+          <TouchableOpacity style={stylesEditScreen.button}>
             <View>
-              <Text style={styles.buttonText}>Add task</Text>
+              <Text style={stylesEditScreen.buttonText}>Add task</Text>
             </View>
           </TouchableOpacity>
         </View>
-        <View style={styles.mainContainer}>
+        <View style={stylesEditScreen.mainContainer}>
           <TextInput
             style={stylesEditScreen.textInputField}
             placeholder="Add task description here"
@@ -79,18 +79,18 @@ export class EditTaskScreen extends Component {
             </Picker>
           </View>
         </View>
-        <View style={styles.navBarBottom}>
-          <TouchableOpacity onPress={this.onPressBack} style={styles.button}>
+        <View style={stylesEditScreen.navBarBottom}>
+          <TouchableOpacity onPress={this.onPressBack} style={stylesEditScreen.button}>
             <View>
-              <Text style={styles.buttonText}>Back</Text>
+              <Text style={stylesEditScreen.buttonText}>Back</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={this.onPressSaveTask}
-            style={styles.button}
+            style={stylesEditScreen.button}
           >
             <View>
-              <Text style={styles.buttonText}>Save task</Text>
+              <Text style={stylesEditScreen.buttonText}>Save task</Text>
             </View>
           </TouchableOpacity>
         </View>
