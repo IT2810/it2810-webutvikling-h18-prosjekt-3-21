@@ -15,7 +15,7 @@ export class PedometerSensor extends React.Component {
   };
 
   getStepPercent = () => {
-    return (((this.state.stepsToday + this.state.steps) + 1000 / this.state.stepGoalToday)*100);
+    return (((this.state.stepsToday + this.state.steps) / this.state.stepGoalToday)*100);
   }
 
   onPressConfig = () => {

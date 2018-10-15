@@ -9,7 +9,7 @@ export default class App extends React.Component {
     super(props);
   }
   state = {
-    currentTab: "Pedometer",
+    currentTab: "HomeScreen",
   };
   handleAddTask = () => {
     this.setState({ currentTab: "AddTaskScreen" });
