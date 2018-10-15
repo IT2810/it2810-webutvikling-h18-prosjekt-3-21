@@ -110,28 +110,29 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
-    height: 100,
+    width: "95%",
+    height: 70,
     borderColor: "#aaa",
     borderWidth: 1,
     borderRadius: 4,
-    paddingLeft: 10,
-    paddingRight: 10,
-    marginBottom: 3,
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginTop: 5
   },
 
   taskoptions: {
     flexDirection: "row",
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "100%",
-    height: 100,
+    width: "95%",
+    height: 70,
     borderColor: "#999",
-    borderWidth: 3,
-    borderRadius: 5,
-    paddingLeft: 10,
-    paddingRight: 10
+    borderWidth: 2,
+    borderRadius: 4,
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginTop: 5
   },
 
   taskoptionbutton: {

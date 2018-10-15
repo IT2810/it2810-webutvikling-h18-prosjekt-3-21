@@ -15,7 +15,7 @@ export class PedometerSensor extends React.Component {
   };
 
   getStepPercent = () => {
-    return (((this.state.stepsToday + this.state.steps) / this.state.stepGoalToday)*100);
+    return (((this.state.stepsToday + this.state.steps) + 1000 / this.state.stepGoalToday)*100);
   }
 
   onPressConfig = () => {
@@ -49,7 +49,6 @@ export class PedometerSensor extends React.Component {
       await AsyncStorage.setItem('@pedometer:step-goal', this.state.stepGoalToday.toString(), () => {
         AsyncStorage.setItem('@pedometer:step-goal', this.state.stepGoalToday.toString());
       });
-      console.log("Item set " + this.state.stepGoalToday.toString());
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +60,6 @@ export class PedometerSensor extends React.Component {
       console.log(value)
       if (value !== null) {
         this.setState({stepGoalToday : parseInt(value)});
-        console.log("found step goal");
       }
       else 
       {
@@ -157,15 +155,15 @@ export class PedometerSensor extends React.Component {
       config = (
         <View style={styles.configwindow}>        
           <TouchableOpacity style={styles.incdecbutton} onPress={this.onPressDecrementGoal}>
-            <Text>-</Text>
+            <Text style={styles.incdecbuttontext}>-</Text>
           </TouchableOpacity>
           <View style={styles.currentgoalconfig}>
-            <Text style={{fontSize: 30}}>
+            <Text style={{fontWeight: "900", color: "#29436d", fontSize: 30}}>
               {this.state.configStepGoalPending}
             </Text>
           </View>
           <TouchableOpacity style={styles.incdecbutton} onPress={this.onPressIncrementGoal}>
-            <Text>+</Text>
+            <Text style={styles.incdecbuttontext}>+</Text>
           </TouchableOpacity>
         </View>
       )
@@ -177,28 +175,29 @@ export class PedometerSensor extends React.Component {
       <View style={styles.container}>
         
         <View style={styles.top}>
-          <Image
-          source={require("./assets/walking.gif")}
-          style={{marginBottom: 40}}
-          />
-          <Text style={styles.progressbar_percent_text}>
+          <Text
+            style={styles.headertext}
+          >
+            STEP TOWARDS YOUR GOALS
+          </Text>
+          <Text style={styles.infotext}>
             Steps today: {this.state.stepsToday + this.state.steps} / {this.state.stepGoalToday} ({Math.min(this.getStepPercent().toFixed(0), 100)}%):
           </Text>
           <View style={styles.progressbar}>
             <View style={[styles.progressbar_completed, {width: `${Math.min(this.getStepPercent(), 100)}%`}]} />
           </View>
-          <Text>
+          <Text style={styles.infotext}>
             Last 7 days average per day: {(this.state.stepCount7days / 7).toFixed(0)}
           </Text>
-          {this.getStepPercent() >= 100 ? <Text style={{fontSize: 28, marginTop: 30}}>STEP GOAL COMPLETE, NICE!</Text> : ""}
         </View>
         
         <View style={styles.bottom}>
           <TouchableOpacity style={styles.showconfigbutton} onPress={this.onPressConfig}>
-            <Text>{this.state.showGoalSetup ? "Confirm" : "Set goal"}</Text>
+            <Text style={{fontWeight: "600", color: "#fff", fontSize: 16}}>{this.state.showGoalSetup ? "CONFIRM" : "SET NEW GOAL"}</Text>
           </TouchableOpacity>
           {config}
         </View>
+        {this.getStepPercent() >= 100 ? <Text style={[styles.infotext, styles.goalCompleteText]}>STEP GOAL COMPLETE, NICE!</Text> : ""}
       </View>
       )
     } 
@@ -219,6 +218,7 @@ export class PedometerSensor extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 20,
     flexDirection: 'column',
     alignItems: "center",
     justifyContent: "center",
@@ -239,23 +239,34 @@ const styles = StyleSheet.create({
     width: '100%'
   },
 
+  headertext: {
+    fontSize: 45,
+    fontWeight: "700",
+    color: '#fff',
+    textShadowColor: "#29436d",
+    textShadowRadius: 0,
+    textShadowOffset: {width: 2, height: 2},
+    textAlign: 'center',
+    marginBottom: 70
+  },
+
   progressbar: {
-    height: '10%',
+    height: '20%',
     width: '80%',
-    backgroundColor: '#b7f1ff',
-    borderRadius: 10,
-    borderColor: '#7fc1ff',
-    borderWidth: 1,
+    backgroundColor: '#fff',
+    borderRadius: 17,
+    borderColor: "#29436d",
+    borderWidth: 3,
     flexDirection: 'row',
     marginTop: 20,
     marginBottom: 20,
   },
 
   progressbar_completed: {
-    borderRadius: 10,
-    borderColor: '#7fbaff',
-    borderRightWidth: 3,
-    backgroundColor: '#7fe6ff'
+    borderColor: '#29436d',
+    borderRightWidth: 1,
+    backgroundColor: '#7fe6ff',
+    borderRadius: 15
   },
 
   progressbar_percent: {
@@ -263,22 +274,27 @@ const styles = StyleSheet.create({
     flex: 1
   },
 
-  progressbar_percent_text: {
-    fontSize: 15,
-    color: '#333',
-    marginBottom: 2
+  infotext: {
+    fontWeight: "600", 
+    color: "#fff", 
+    fontSize: 20,
+    marginBottom: 15,
+    textShadowColor: "#29436d",
+    textShadowRadius: 1,
+    textShadowOffset: {width: 1, height: 1},
   },
 
   showconfigbutton: {
     height: 50,
-    width: 90,
+    width: 140,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
     borderRadius: 10,
-    backgroundColor: '#7fe6ff',
-    borderColor: '#7fc1ff',
-    borderWidth: 3
+    backgroundColor: "#5176A1",
+    borderColor: "#29436d",
+    borderWidth: 2,
+
   },
 
   configwindow: {
@@ -293,26 +309,45 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center',
     marginLeft: 5,
     marginRight: 5,
     borderRadius: 10,
-    backgroundColor: '#7fe6ff',
-    borderColor: '#7fc1ff',
-    borderWidth: 3
+    backgroundColor: "#5176A1",
+    borderColor: "#29436d",
+    borderWidth: 2,
+    flexDirection: 'column'
+  },
+
+  incdecbuttontext: {
+    fontWeight: "600", 
+    fontSize: 50,
+    lineHeight: 50,
+    color: "#fff", 
+    alignSelf: 'center',
+    textAlign: 'center',
+    textShadowColor: "#29436d",
+    textShadowRadius: 1,
+    textShadowOffset: {width: 1, height: 1},
   },
 
   currentgoalconfig: {
-    backgroundColor: '#b7f1ff',
+    backgroundColor: "#d6f7ff",
     height: 50,
     width: '40%',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
     borderRadius: 10,
-    borderColor: '#7fc1ff',
-    borderWidth: 3
+    borderColor: "#29436d",
+    borderWidth: 2
+  },
+
+  goalCompleteText: {
+    fontSize: 20,
+    position: "absolute",
+    paddingBottom: 90
   }
+
 });
 
 
