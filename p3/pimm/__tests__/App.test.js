@@ -5,9 +5,17 @@ import renderer from "react-test-renderer";
 
 test("renders correctly", () => {
   const tree = renderer.create(<App />).toJSON();
-<<<<<<< HEAD
-=======
   expect(tree.type).toEqual("View");
->>>>>>> master
   expect(tree).toMatchSnapshot();
+
+  let inst = tree.getInstance();
+
+  // Test state changes in App.js
+  expect(inst.state.currentTab).toEqual("HomeScreen");
+  inst.handleEditTask();
+  expect(inst.state.currentTab).toEqual("EditTaskScreen");
+  inst.handlePressBack();
+  expect(inst.state.currentTab).toEqual("HomeScreen");
+  // inst.handleNavbarPress("Pedometer");
+  //expect(inst.state.currentTab).toEqual("PedometerSensor");
 });
