@@ -70,8 +70,6 @@ export class PedometerSensor extends React.Component {
      }
   }
 
-  
-
   componentDidMount() {
     this._subscribe();
     this._LoadGoal();
@@ -101,39 +99,43 @@ export class PedometerSensor extends React.Component {
           isPedometerAvailable: "Could not get isPedometerAvailable: " + error
         });
       }
-    );
+    ).then( () => {
+      if (this.state.isPedometerAvailable == "true") 
+      {   
+        const now = new Date();
+        
+        const weekBefore = new Date();
+        weekBefore.setDate(now.getDate() - 7);
+        weekBefore.setHours(0,0,0,0);
 
-    const now = new Date();
-    
-    const weekBefore = new Date();
-    weekBefore.setDate(now.getDate() - 7);
-    weekBefore.setHours(0,0,0,0);
-
-    Pedometer.getStepCountAsync(weekBefore, now).then(
-      result => {
-        this.setState({ stepCount7days : result.steps });
-      },
-      error => {
-        this.setState({
-          pastStepCount: "Could not get stepCount: " + error
-        });
+        Pedometer.getStepCountAsync(weekBefore, now).then(
+          result => {
+            this.setState({ stepCount7days : result.steps });
+          },
+          error => {
+            this.setState({
+              pastStepCount: "Could not get stepCount: " + error
+            });
+          }
+        );
+        
+        const dayBefore = new Date();
+        dayBefore.setDate(now.getDate());
+        dayBefore.setHours(0,0,0,0);
+        
+        Pedometer.getStepCountAsync(dayBefore, now).then(
+          result => {
+            this.setState({ stepsToday : result.steps });
+          },
+          error => {
+            this.setState({
+              pastStepCount: "Could not get stepCount: " + error
+            });
+          }
+        );
       }
-    );
+    });
     
-    const dayBefore = new Date();
-    dayBefore.setDate(now.getDate());
-    dayBefore.setHours(0,0,0,0);
-    
-    Pedometer.getStepCountAsync(dayBefore, now).then(
-      result => {
-        this.setState({ stepsToday : result.steps });
-      },
-      error => {
-        this.setState({
-          pastStepCount: "Could not get stepCount: " + error
-        });
-      }
-    );
   };
 
   _unsubscribe = () => {
@@ -197,7 +199,9 @@ export class PedometerSensor extends React.Component {
           </TouchableOpacity>
           {config}
         </View>
-        {this.getStepPercent() >= 100 ? <Text style={[styles.infotext, styles.goalCompleteText]}>STEP GOAL COMPLETE, NICE!</Text> : ""}
+        <Text style={[styles.infotext, styles.goalCompleteText]}>
+          {this.getStepPercent() >= 100 ? "STEP GOAL COMPLETE, NICE!" : " "}
+        </Text>
       </View>
       )
     } 
