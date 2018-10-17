@@ -19,7 +19,7 @@ export default class App extends React.Component {
   };
   handleEditTask = (id, desc) => {
     displayedScreen = (
-      <EditTaskScreen parent={this} taskid={id} taskdesc={desc} />
+      <EditTaskScreen parent={this} taskid={id} taskdesc={desc} type={"EDIT"}/>
     );
     this.setState({ currentTab: "EditTaskScreen" });
   };
@@ -32,7 +32,7 @@ export default class App extends React.Component {
     if (this.state.currentTab === "HomeScreen") {
       displayedScreen = <HomeScreen parent={this} />;
     } else if (this.state.currentTab === "AddTaskScreen") {
-      displayedScreen = <EditTaskScreen parent={this} />;
+      displayedScreen = <EditTaskScreen parent={this} type={"ADD"}/>;
     } else if (this.state.currentTab === "Pedometer") {
       displayedScreen = <PedometerSensor />;
     }
@@ -113,7 +113,6 @@ const appStyle = StyleSheet.create({
   navbartext: {
     alignSelf: "center",
     justifyContent: "center",
-    //fontWeight: "900",
     fontSize: 20,
     color: "#555"
   },

@@ -16,8 +16,9 @@ export class EditTaskScreen extends Component {
     this.state.parent = props.parent;
     this.state.taskDescription = props.taskdesc;
     this.state.taskID = props.taskid;
-    this.state.taskType = "regTask";
     this.state.tasksArray = [];
+    this.state.type = props.type;
+
   }
 
   componentDidMount() {
@@ -50,7 +51,7 @@ export class EditTaskScreen extends Component {
     return (
       <View style={stylesEditScreen.container}>
         <View style={stylesEditScreen.editTaskHeader}>
-          <Text style={stylesEditScreen.editTaskHeaderText}>ADD/EDIT TASK</Text>
+          <Text style={stylesEditScreen.editTaskHeaderText}>{this.state.type} TASK</Text>
         </View>  
         <View style={stylesEditScreen.textInputContainer}>
           <TextInput
@@ -142,7 +143,6 @@ export const stylesEditScreen = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
   },
 
   textInputField: {
@@ -154,12 +154,12 @@ export const stylesEditScreen = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
+    marginTop: '10%'
   },
 
   editTaskHeaderText: {
     fontSize: 40,
-    fontWeight: "700",
     color: '#fff',
     textShadowColor: "#29436d",
     textShadowRadius: 0,
