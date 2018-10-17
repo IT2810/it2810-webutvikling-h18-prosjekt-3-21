@@ -9,7 +9,7 @@ export default class App extends React.Component {
     super(props);
   }
   state = {
-    currentTab: "HomeScreen",
+    currentTab: "HomeScreen"
   };
   handleAddTask = () => {
     this.setState({ currentTab: "AddTaskScreen" });
@@ -24,9 +24,9 @@ export default class App extends React.Component {
     this.setState({ currentTab: "EditTaskScreen" });
   };
 
-  handleNavbarPress = (id) => {
-    this.setState({currentTab : id});
-  }
+  handleNavbarPress = id => {
+    this.setState({ currentTab: id });
+  };
 
   render() {
     if (this.state.currentTab === "HomeScreen") {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
     } else if (this.state.currentTab === "AddTaskScreen") {
       displayedScreen = <EditTaskScreen parent={this} />;
     } else if (this.state.currentTab === "Pedometer") {
-      displayedScreen = <PedometerSensor/>
+      displayedScreen = <PedometerSensor />;
     }
 
     let isPedometer = this.state.currentTab === "Pedometer";
@@ -43,17 +43,37 @@ export default class App extends React.Component {
       <View style={appStyle.app}>
         {displayedScreen}
         <View style={appStyle.navbar}>
-          <TouchableOpacity 
-            style={[appStyle.navbarbutton, !isPedometer ? appStyle.activebutton : ""]}
+          <TouchableOpacity
+            style={[
+              appStyle.navbarbutton,
+              !isPedometer ? appStyle.activebutton : ""
+            ]}
             onPress={() => this.handleNavbarPress("HomeScreen")}
+          >
+            <Text
+              style={[
+                appStyle.navbartext,
+                !isPedometer ? appStyle.activeText : ""
+              ]}
             >
-            <Text style={[appStyle.navbartext, !isPedometer ? appStyle.activeText : ""]}>TASK LIST</Text>
+              TASK LIST
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity 
-            style={[appStyle.navbarbutton, isPedometer ? appStyle.activebutton : ""]}
+          <TouchableOpacity
+            style={[
+              appStyle.navbarbutton,
+              isPedometer ? appStyle.activebutton : ""
+            ]}
             onPress={() => this.handleNavbarPress("Pedometer")}
+          >
+            <Text
+              style={[
+                appStyle.navbartext,
+                isPedometer ? appStyle.activeText : ""
+              ]}
             >
-            <Text style={[appStyle.navbartext, isPedometer ? appStyle.activeText : ""]}>STEP COUNTER</Text>
+              STEP COUNTER
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -63,41 +83,41 @@ export default class App extends React.Component {
 
 const appStyle = StyleSheet.create({
   app: {
-    flexDirection: 'column',
-    alignContent: 'center',
-    justifyContent: 'center',
-    height: '100%',
-    width: '100%'
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    height: "100%",
+    width: "100%"
   },
 
   navbar: {
-    height: '8%',
-    flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'center',
+    height: "8%",
+    flexDirection: "row",
+    alignContent: "center",
+    justifyContent: "center"
   },
 
   navbarbutton: {
     flex: 1,
-    height: '100%',
-    alignSelf: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    alignSelf: "center",
+    justifyContent: "center",
     borderTopWidth: 1,
-    backgroundColor: '#aaa'
+    backgroundColor: "#aaa"
   },
 
   activebutton: {
-    backgroundColor: '#f7f7f7'
+    backgroundColor: "#f7f7f7"
   },
 
   navbartext: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-    fontWeight: "900",
+    alignSelf: "center",
+    justifyContent: "center",
+    //fontWeight: "900",
     fontSize: 20,
     color: "#555"
   },
-  
+
   activeText: {
     color: "#333"
   }
