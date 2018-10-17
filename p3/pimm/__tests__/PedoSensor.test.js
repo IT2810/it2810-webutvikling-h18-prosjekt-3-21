@@ -9,12 +9,10 @@ test("Task functionality testing", () => {
   let inst = tree.getInstance();
 
   // Test task categories in HomeScreen.js
-  AppInstance = tree.toTree();
   HomeScreenInst = tree.toTree().rendered.instance;
   expect(HomeScreenInst.state.displayedTab).toEqual("todo");
-  AppInstance.handleNavbarPress();
-  AppInstance.onPressTodo();
-  expect(HomeScreenInst.state.displayedTab).toEqual("todo");
+  HomeScreenInst.onPressCompleted();
+  expect(HomeScreenInst.state.displayedTab).toEqual("completed");
 
   // Test EdiTaskScreen.js
   inst.handleEditTask();
