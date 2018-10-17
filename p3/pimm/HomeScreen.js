@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import {
-  AsyncStorage,
   StyleSheet,
   Text,
   View,
-  ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import { Task } from "./Task";
 import { TasksToDo } from "./TasksToDo";
@@ -39,9 +38,10 @@ export class HomeScreen extends Component {
     {
       addTaskButton =         
         <TouchableOpacity onPress={this.onPressAddTask} style={styles.addTaskButton}>
-          <View>
-            <Text style={styles.addTaskText}>+</Text>
-          </View>
+          <Image 
+            source={require("./assets/plus.png")}
+            style={styles.addTaskButtonImage}
+          />
         </TouchableOpacity>;
     }
     return (
@@ -145,12 +145,7 @@ export const styles = StyleSheet.create({
   },
 
   addTaskButton: {
-    backgroundColor: "#5176A1",
-    borderColor: "#29436d",
-    width: 60,
-    height: 60,
-    borderWidth: 3,
-    borderRadius: 60,
+
     alignItems: "center",
     justifyContent: "center",
     position: 'absolute',
@@ -159,16 +154,9 @@ export const styles = StyleSheet.create({
     padding: 0
   },
 
-
-  addTaskText: {
-    fontSize: 80, 
-    color: '#fff',
-    lineHeight: 80,
-    height: 78,
-    fontWeight: "700",
-    textShadowColor: "#29436d",
-    textShadowRadius: 0,
-    textShadowOffset: {width: 2, height: 2}
+  addTaskButtonImage: {
+    width: 60,
+    height: 60,
   }
 
 });
