@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import {
-  AsyncStorage,
   StyleSheet,
   Text,
   View,
-  ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import { Task } from "./Task";
 import { TasksToDo } from "./TasksToDo";
@@ -16,7 +15,7 @@ export class HomeScreen extends Component {
     super(props);
     this.state.parent = props.parent;
   }
-  
+
   state = {
     displayedTab: "todo",
     tasksArray: []
@@ -37,31 +36,62 @@ export class HomeScreen extends Component {
     let addTaskButton;
     if (this.state.displayedTab === "todo")
     {
-      addTaskButton =         
+      addTaskButton = (      
         <TouchableOpacity onPress={this.onPressAddTask} style={styles.addTaskButton}>
-          <View>
-            <Text style={styles.addTaskText}>+</Text>
-          </View>
-        </TouchableOpacity>;
+          <Image 
+            source={require("./assets/plus.png")}
+            style={styles.addTaskButtonImage}
+          />
+      </TouchableOpacity>);
     }
     return (
       <View style={styles.container}>
         <View style={styles.navBarTodo}>
-          <TouchableOpacity onPress={this.onPressToDo} style={[this.state.displayedTab == "todo" ? styles.activeButton : styles.button, {borderLeftWidth: 0}]}>
+          <TouchableOpacity
+            onPress={this.onPressToDo}
+            style={[
+              this.state.displayedTab == "todo"
+                ? styles.activeButton
+                : styles.button,
+              { borderLeftWidth: 0 }
+            ]}
+          >
             <View>
-              <Text style={this.state.displayedTab == "todo" ? styles.activeButtonText : styles.buttonText}>TO DO</Text>
+              <Text
+                style={
+                  this.state.displayedTab == "todo"
+                    ? styles.activeButtonText
+                    : styles.buttonText
+                }
+              >
+                TO DO
+              </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.onPressCompleted} style={[this.state.displayedTab == "completed" ? styles.activeButton : styles.button, {borderRightWidth: 0}]}>
+          <TouchableOpacity
+            onPress={this.onPressCompleted}
+            style={[
+              this.state.displayedTab == "completed"
+                ? styles.activeButton
+                : styles.button,
+              { borderRightWidth: 0 }
+            ]}
+          >
             <View>
-              <Text style={this.state.displayedTab == "completed" ? styles.activeButtonText : styles.buttonText}>COMPLETED</Text>
+              <Text
+                style={
+                  this.state.displayedTab == "completed"
+                    ? styles.activeButtonText
+                    : styles.buttonText
+                }
+              >
+                COMPLETED
+              </Text>
             </View>
           </TouchableOpacity>
         </View>
-        <View style={styles.mainContainer}>
-          {tasks}
-        </View>
-          {addTaskButton}
+        <View style={styles.mainContainer}>{tasks}</View>
+        {addTaskButton}
       </View>
     );
   }
@@ -81,9 +111,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "lightblue",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20
+    marginTop: 0 //20
   },
-  
+
   mainContainer: {
     flex: 7,
     width: "100%",
@@ -101,8 +131,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     padding: 0,
+    marginTop: 30
   },
-  
+
   button: {
     flex: 1,
     backgroundColor: "#5176A1",
@@ -123,52 +154,39 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderBottomWidth: 0,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
 
   buttonText: {
     fontSize: 29,
-    fontWeight: "600",
-    color: '#444',
+    // fontWeight: "bold",
+    color: "#444",
     textShadowColor: "#29436d",
     textShadowRadius: 0,
-    textShadowOffset: {width: 1, height: 1}
+    textShadowOffset: { width: 1, height: 1 }
   },
 
   activeButtonText: {
     fontSize: 30,
-    fontWeight: "700",
-    color: '#fff',
+    //fontWeight: "200",
+    color: "#fff",
     textShadowColor: "#29436d",
     textShadowRadius: 0,
-    textShadowOffset: {width: 1, height: 1}
+    textShadowOffset: { width: 1, height: 1 }
   },
 
   addTaskButton: {
-    backgroundColor: "#5176A1",
-    borderColor: "#29436d",
-    width: 60,
-    height: 60,
-    borderWidth: 3,
-    borderRadius: 60,
+
     alignItems: "center",
     justifyContent: "center",
-    position: 'absolute',
-    bottom: '5%',
-    right: '5%',
+    position: "absolute",
+    bottom: "5%",
+    right: "5%",
     padding: 0
   },
 
-
-  addTaskText: {
-    fontSize: 80, 
-    color: '#fff',
-    lineHeight: 80,
-    height: 78,
-    fontWeight: "700",
-    textShadowColor: "#29436d",
-    textShadowRadius: 0,
-    textShadowOffset: {width: 2, height: 2}
+  addTaskButtonImage: {
+    width: 60,
+    height: 60,
   }
-
 });
