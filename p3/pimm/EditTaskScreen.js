@@ -177,11 +177,12 @@ export const stylesEditScreen = StyleSheet.create({
     backgroundColor: '#fff',
     height: '40%',
     width: '80%',
-    textAlign: 'center',
-    paddingTop: 30,
+    textAlign: 'left',
+    paddingLeft: 10,
     borderRadius: 10,
     borderColor: '#333',
-    borderWidth: 2
+    borderWidth: 2,
+    fontSize: 25
   },
 
   buttonContainer: {
