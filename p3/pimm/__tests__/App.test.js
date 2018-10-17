@@ -4,9 +4,10 @@ import App from "../App";
 import renderer from "react-test-renderer";
 
 test("renders correctly", () => {
-  const tree = renderer.create(<App />).toJSON();
-  expect(tree.type).toEqual("View");
-  expect(tree).toMatchSnapshot();
+  const tree = renderer.create(<App />);
+  let treeJSON = tree.toJSON();
+  expect(treeJSON.type).toEqual("View");
+  expect(treeJSON).toMatchSnapshot();
 
   let inst = tree.getInstance();
 
@@ -16,6 +17,6 @@ test("renders correctly", () => {
   expect(inst.state.currentTab).toEqual("EditTaskScreen");
   inst.handlePressBack();
   expect(inst.state.currentTab).toEqual("HomeScreen");
-  // inst.handleNavbarPress("Pedometer");
-  //expect(inst.state.currentTab).toEqual("PedometerSensor");
+  inst.handleNavbarPress("Pedometer");
+  expect(inst.state.currentTab).toEqual("Pedometer");
 });
