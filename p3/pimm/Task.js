@@ -68,7 +68,9 @@ export class Task extends React.Component {
         </TouchableOpacity>
       );
     } else {
-      taskItem = (
+      if (this.state.parent.state.parent.state.displayedTab == "todo") 
+      {
+        taskItem = (
         <View style={styles.taskoptions}>
           <TouchableOpacity onPress={this._toggleTaskOptions}>
             <Image
@@ -98,7 +100,26 @@ export class Task extends React.Component {
             />
           </TouchableOpacity>
         </View>
-      );
+        );
+      } else {
+        taskItem = (
+          <View style={styles.taskoptions}>
+            <TouchableOpacity onPress={this._toggleTaskOptions}>
+              <Image
+                source={require("./assets/back.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
+  
+            <TouchableOpacity onPress={this._onPressDeleteTask}>
+              <Image
+                source={require("./assets/delete.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
+          </View>
+        );
+      }
     }
     return taskItem;
   }
