@@ -1,22 +1,22 @@
-import React from "react";
-import App from "../App";
+// import React from "react";
+// import App from "../App";
 
-import renderer from "react-test-renderer";
+// import renderer from "react-test-renderer";
 
-test("renders correctly", () => {
-  const tree = renderer.create(<App />);
-  let treeJSON = tree.toJSON();
-  expect(treeJSON.type).toEqual("View");
-  expect(treeJSON).toMatchSnapshot();
+// test("renders correctly", () => {
+//   const tree = renderer.create(<App />);
+//   let treeJSON = tree.toJSON();
+//   expect(treeJSON.type).toEqual("View");
+//   expect(treeJSON).toMatchSnapshot();
 
-  let inst = tree.getInstance();
+//   let inst = tree.getInstance();
 
-  // Test state changes in App.js
-  expect(inst.state.currentTab).toEqual("HomeScreen");
-  inst.handleEditTask();
-  expect(inst.state.currentTab).toEqual("EditTaskScreen");
-  inst.handlePressBack();
-  expect(inst.state.currentTab).toEqual("HomeScreen");
-  inst.handleNavbarPress("Pedometer");
-  expect(inst.state.currentTab).toEqual("Pedometer");
-});
+//   // Test state changes in App.js
+//   expect(inst.state.currentTab).toEqual("HomeScreen");
+//   inst.handleEditTask();
+//   expect(inst.state.currentTab).toEqual("EditTaskScreen");
+//   inst.handlePressBack();
+//   expect(inst.state.currentTab).toEqual("HomeScreen");
+//   inst.handleNavbarPress("Pedometer");
+//   expect(inst.state.currentTab).toEqual("Pedometer");
+// });

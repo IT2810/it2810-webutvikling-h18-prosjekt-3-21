@@ -68,38 +68,37 @@ export class Task extends React.Component {
         </TouchableOpacity>
       );
     } else {
-      if (this.state.parent.state.parent.state.displayedTab == "todo") 
-      {
+      if (this.state.parent.state.parent.state.displayedTab == "todo") {
         taskItem = (
-        <View style={styles.taskoptions}>
-          <TouchableOpacity onPress={this._toggleTaskOptions}>
-            <Image
-              source={require("./assets/back.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
+          <View style={styles.taskoptions}>
+            <TouchableOpacity onPress={this._toggleTaskOptions}>
+              <Image
+                source={require("./assets/back.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressEditTask}>
-            <Image
-              source={require("./assets/edit.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={this._onPressEditTask}>
+              <Image
+                source={require("./assets/edit.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressDeleteTask}>
-            <Image
-              source={require("./assets/delete.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={this._onPressDeleteTask}>
+              <Image
+                source={require("./assets/delete.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressCompleteTask}>
-            <Image
-              source={require("./assets/accept.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity onPress={this._onPressCompleteTask}>
+              <Image
+                source={require("./assets/accept.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
+          </View>
         );
       } else {
         taskItem = (
@@ -110,7 +109,7 @@ export class Task extends React.Component {
                 style={styles.taskoptionbutton}
               />
             </TouchableOpacity>
-  
+
             <TouchableOpacity onPress={this._onPressDeleteTask}>
               <Image
                 source={require("./assets/delete.png")}
@@ -124,6 +123,7 @@ export class Task extends React.Component {
     return taskItem;
   }
 }
+export default Task;
 
 const styles = StyleSheet.create({
   task: {
@@ -165,6 +165,6 @@ const styles = StyleSheet.create({
     color: "#444",
     flex: 5,
     fontWeight: "600",
-    fontSize: 18,
+    fontSize: 18
   }
 });

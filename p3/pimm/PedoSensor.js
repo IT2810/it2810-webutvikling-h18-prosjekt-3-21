@@ -87,9 +87,7 @@ export class PedometerSensor extends React.Component {
     this._LoadGoal();
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   componentWillUnmount() {
     this._unsubscribe();
@@ -242,20 +240,26 @@ export class PedometerSensor extends React.Component {
           </Text>
         </View>
       );
-    } else if(this.state.isPedometerAvailable == "false") {
+    } else if (this.state.isPedometerAvailable == "false") {
       content = (
-          <Text style={{backgroundColor: "lightblue", flex: 1, alignItems: "flex-end", justifyContent: "center" }}>
-            No pedometer available.
-          </Text>
+        <Text
+          style={{
+            backgroundColor: "lightblue",
+            flex: 1,
+            alignItems: "flex-end",
+            justifyContent: "center"
+          }}
+        >
+          No pedometer available.
+        </Text>
       );
     } else {
-      content = (
-        <View style={{backgroundColor: "lightblue", flex:1}} />
-      )
+      content = <View style={{ backgroundColor: "lightblue", flex: 1 }} />;
     }
     return content;
   }
 }
+export default PedometerSensor;
 
 const styles = StyleSheet.create({
   container: {

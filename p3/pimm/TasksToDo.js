@@ -67,3 +67,4 @@ export class TasksToDo extends Component {
     );
   }
 }
+export default TasksToDo;

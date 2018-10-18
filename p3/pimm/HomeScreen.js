@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Image
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { Task } from "./Task";
 import { TasksToDo } from "./TasksToDo";
 import { TasksCompleted } from "./TasksCompleted";
@@ -34,15 +28,18 @@ export class HomeScreen extends Component {
     }
 
     let addTaskButton;
-    if (this.state.displayedTab === "todo")
-    {
-      addTaskButton = (      
-        <TouchableOpacity onPress={this.onPressAddTask} style={styles.addTaskButton}>
-          <Image 
+    if (this.state.displayedTab === "todo") {
+      addTaskButton = (
+        <TouchableOpacity
+          onPress={this.onPressAddTask}
+          style={styles.addTaskButton}
+        >
+          <Image
             source={require("./assets/plus.png")}
             style={styles.addTaskButtonImage}
           />
-      </TouchableOpacity>);
+        </TouchableOpacity>
+      );
     }
     return (
       <View style={styles.container}>
@@ -105,6 +102,7 @@ export class HomeScreen extends Component {
     this.state.parent.handleAddTask();
   };
 }
+export default HomeScreen;
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -176,7 +174,6 @@ export const styles = StyleSheet.create({
   },
 
   addTaskButton: {
-
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
@@ -187,6 +184,6 @@ export const styles = StyleSheet.create({
 
   addTaskButtonImage: {
     width: 60,
-    height: 60,
+    height: 60
   }
 });
