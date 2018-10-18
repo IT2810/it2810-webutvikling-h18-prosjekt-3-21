@@ -4,11 +4,11 @@ import App from "../App";
 import renderer from "react-test-renderer";
 
 test("renders correctly", () => {
-  const tree = renderer.create(<App />).toJSON();
+  const tree = renderer.create(<App />);
   expect(tree.type).toEqual("View");
   expect(tree).toMatchSnapshot();
 
-  let inst = tree.getInstance();
+  let inst = tree.root;
 
   // Test state changes in App.js
   expect(inst.state.currentTab).toEqual("HomeScreen");
