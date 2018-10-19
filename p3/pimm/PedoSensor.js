@@ -6,7 +6,6 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
   AsyncStorage
 } from "react-native";
 
@@ -71,7 +70,6 @@ export class PedometerSensor extends React.Component {
   _LoadGoal = async () => {
     try {
       const value = await AsyncStorage.getItem("@pedometer:step-goal");
-      console.log(value);
       if (value !== null) {
         this.setState({ stepGoalToday: parseInt(value) });
       } else {
@@ -85,10 +83,6 @@ export class PedometerSensor extends React.Component {
   componentWillMount() {
     this._subscribe();
     this._LoadGoal();
-  }
-
-  componentDidMount() {
-
   }
 
   componentWillUnmount() {
@@ -177,7 +171,6 @@ export class PedometerSensor extends React.Component {
           <View style={styles.currentgoalconfig}>
             <Text
               style={{
-                //fontWeight: "900",
                 color: "#29436d",
                 fontSize: 30
               }}
@@ -227,7 +220,6 @@ export class PedometerSensor extends React.Component {
             >
               <Text
                 style={{
-                  //fontWeight: "600",
                   color: "#fff",
                   fontSize: 16
                 }}
