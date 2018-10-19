@@ -31,13 +31,24 @@ Oppgavene lagres som JSON-objekter, med en unik id, en oppgavebeskrivelse og ver
 
 ## Testing
 
-Testing er gjort med Jest.
-`App.js` testes først med sjekk på at den returnerer en `<View>`-komponent, før den sammenlignes med et tidligere snapshot av hvordan brukergrensesnittet skal se ut.
-Dette skjer i `App.test.js`.
-Deretter kjøres `HomeScreen.test.js` (bør forandre navn på denne, for det testes mer enn bare Homescreen her), hvor det sjekkes at state-forandringer skjer som det skal.
-Først sjekkes den nåværende state'en for å være sikker på at alt har blitt satt riktig opp, før funksjoner som skifter state'en kalles og ny sjekkes kjøres igjen for å bekrefte at state-forandringen har blitt gjennomført. Dette gjøres initielt i `App.js`, hvor skifter mellom de forskjellige hovedkomponentene testes (`HomeScreen`, `EditTaskScreen` og `PedometerSensor`).
-Deretter sjekkes `HomeScreen.js`, hvor det sjekkes at man kan skifte mellom oppgaver som ikke er utført og de som er utført.
-`EditTaskScreen.js` testes ved å sjekke at man kan gå tilbake til hjemskjermen.
+Testing er gjort med `Jest` og `TestRenderer` funksjonen til `react-test-renderer`.
+Alle komponentene sjekkes med snapshot-funksjonaliteten til Jest for å sjekke at brukergrensesnittet ikke forandrer seg utilsiktet. 
+Disse testene gjøres ved at UI-komponentene til appen rendres, lagres (ofte som JSON), før de sammenlignes med tidligere snapshot for å se om de matcher. 
+Dersom noe er forskjellig vil testen feile. 
+Hvis forandringer i brukergrensesnittet er gjort med hensikt kan snapshot'et oppdateres for å inkludere endringene.
+Disse testene egner seg ikke godt under utvikling av brukergrensesnittet, men fungerer bra når brukergrensesnittet er klart og forandringer som gjøres ikke er ment å forandre det brukeren ser. 
+Snapshot-testene gjøres i testfiler med samme navn som komponenten, ie. `App.test.js` tester `App.js`. 
+
+`TestRenderer` brukes for å rendre komponenttreet inn i minnet så forskjellige sjekker kan gjøres.
+Med dette testtreet kan både metoder og `states` i komponentene kalles og sjekkes.
+Dette gjøres blant annet i `App.test.js` og `HomeScreen.test.js`, hvor en state sjekkes, en metode som skal påvirke den state'en kalles, før state'en sjekkes igjen for å bekrefte at den korrekte endringen er gjort. 
+Dette gjentas så for alle tilgjengelige tilstander og metoder.  
+
+Disse testene gir en total testdekning på 49%. 
+Dette er ikke ideelt, men gir sørger for en minimumsdekning av appen.
+Dersom arbeidet med appen skulle fortsatt i lengre tid kunne flere tester ha blitt skrevet for å øke dekningen, men med begrenset tid ble dette ikke gjort nå.
+
+
 Testing av AsyncStorage gjøres ved at det blir lacket en mock av AsyncStorage. Klassen som gjør dette heter MockStorage og er
 direkte kopiert av mockStorage.js gitt av bruker "free-soul" på følgende StackOverflow tråd https://stackoverflow.com/questions/40952566/how-to-test-async-storage-with-jest. Denne mockStorage klassen blir brukt i AsyncStorage.test.js for å teste funksjonaliteten til AsyncStorage. Måten testingen av AsyncStorage fungerer nå er at
 vi tester at objekter som blir satt, fjernet, hentet, cleared fungerer på den måten som AsyncStorage mener at det skal.
