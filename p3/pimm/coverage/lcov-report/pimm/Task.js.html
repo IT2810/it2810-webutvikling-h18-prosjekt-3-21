@@ -3,12 +3,12 @@
 <head>
     <title>Code coverage report for pimm/Task.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="..\prettify.css" />
-    <link rel="stylesheet" href="..\base.css" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(..\sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\index.html">All files</a> / <a href="index.html">pimm</a> Task.js
+      <a href="../index.html">All files</a> / <a href="index.html">pimm</a> Task.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.76% </span>
+        <span class="strong">38.1% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/21</span>
+        <span class='fraction'>8/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>2/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.76% </span>
+        <span class="strong">38.1% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/21</span>
+        <span class='fraction'>8/21</span>
       </div>
     </div>
   </div>
@@ -207,13 +207,7 @@
 162
 163
 164
-165
-166
-167
-168
-169
-170
-171</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+165</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -225,16 +219,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -274,8 +262,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,7 +272,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -336,11 +323,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -385,26 +373,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import {
-  Alert,
-  AppRegistry,
   AsyncStorage,
-  Platform,
   StyleSheet,
   Text,
-  TouchableHighlight,
   TouchableOpacity,
-  TouchableNativeFeedback,
-  TouchableWithoutFeedback,
   View,
   Image
 } from "react-native";
 &nbsp;
 export class Task extends React.Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >    super(props);</span>
-<span class="cstat-no" title="statement not covered" >    this.state.id = props.id;</span>
-<span class="cstat-no" title="statement not covered" >    this.state.taskdescription = props.taskdescription;</span>
-<span class="cstat-no" title="statement not covered" >    this.state.parent = props.parent;</span>
+  constructor(props) {
+    super(props);
+    this.state.id = props.id;
+    this.state.taskdescription = props.taskdescription;
+    this.state.parent = props.parent;
   }
 &nbsp;
   state = {
@@ -442,10 +424,10 @@ export class Task extends React.Component {
 <span class="cstat-no" title="statement not covered" >    this.setState({ pressed: s });</span>
   };
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
+  render() {
     let taskItem;
-<span class="cstat-no" title="statement not covered" >    if (this.state.pressed === false) {</span>
-<span class="cstat-no" title="statement not covered" >      taskItem = (</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.state.pressed === false) {
+      taskItem = (
         &lt;TouchableOpacity onPress={this._toggleTaskOptions} style={styles.task}&gt;
           &lt;Text style={styles.taskdescription}&gt;
             {this.state.taskdescription}
@@ -453,38 +435,37 @@ export class Task extends React.Component {
         &lt;/TouchableOpacity&gt;
       );
     } else {
-<span class="cstat-no" title="statement not covered" >      if (this.state.parent.state.parent.state.displayedTab == "todo") </span>
-      {
+<span class="cstat-no" title="statement not covered" >      if (this.state.parent.state.parent.state.displayedTab == "todo") {</span>
 <span class="cstat-no" title="statement not covered" >        taskItem = (</span>
-        &lt;View style={styles.taskoptions}&gt;
-          &lt;TouchableOpacity onPress={this._toggleTaskOptions}&gt;
-            &lt;Image
-              source={require("./assets/back.png")}
-              style={styles.taskoptionbutton}
-            /&gt;
-          &lt;/TouchableOpacity&gt;
+          &lt;View style={styles.taskoptions}&gt;
+            &lt;TouchableOpacity onPress={this._toggleTaskOptions}&gt;
+              &lt;Image
+                source={require("./assets/back.png")}
+                style={styles.taskoptionbutton}
+              /&gt;
+            &lt;/TouchableOpacity&gt;
 &nbsp;
-          &lt;TouchableOpacity onPress={this._onPressEditTask}&gt;
-            &lt;Image
-              source={require("./assets/edit.png")}
-              style={styles.taskoptionbutton}
-            /&gt;
-          &lt;/TouchableOpacity&gt;
+            &lt;TouchableOpacity onPress={this._onPressEditTask}&gt;
+              &lt;Image
+                source={require("./assets/edit.png")}
+                style={styles.taskoptionbutton}
+              /&gt;
+            &lt;/TouchableOpacity&gt;
 &nbsp;
-          &lt;TouchableOpacity onPress={this._onPressDeleteTask}&gt;
-            &lt;Image
-              source={require("./assets/delete.png")}
-              style={styles.taskoptionbutton}
-            /&gt;
-          &lt;/TouchableOpacity&gt;
+            &lt;TouchableOpacity onPress={this._onPressDeleteTask}&gt;
+              &lt;Image
+                source={require("./assets/delete.png")}
+                style={styles.taskoptionbutton}
+              /&gt;
+            &lt;/TouchableOpacity&gt;
 &nbsp;
-          &lt;TouchableOpacity onPress={this._onPressCompleteTask}&gt;
-            &lt;Image
-              source={require("./assets/accept.png")}
-              style={styles.taskoptionbutton}
-            /&gt;
-          &lt;/TouchableOpacity&gt;
-        &lt;/View&gt;
+            &lt;TouchableOpacity onPress={this._onPressCompleteTask}&gt;
+              &lt;Image
+                source={require("./assets/accept.png")}
+                style={styles.taskoptionbutton}
+              /&gt;
+            &lt;/TouchableOpacity&gt;
+          &lt;/View&gt;
         );
       } else {
 <span class="cstat-no" title="statement not covered" >        taskItem = (</span>
@@ -495,7 +476,7 @@ export class Task extends React.Component {
                 style={styles.taskoptionbutton}
               /&gt;
             &lt;/TouchableOpacity&gt;
-  
+&nbsp;
             &lt;TouchableOpacity onPress={this._onPressDeleteTask}&gt;
               &lt;Image
                 source={require("./assets/delete.png")}
@@ -506,9 +487,10 @@ export class Task extends React.Component {
         );
       }
     }
-<span class="cstat-no" title="statement not covered" >    return taskItem;</span>
+    return taskItem;
   }
 }
+export default Task;
 &nbsp;
 const styles = StyleSheet.create({
   task: {
@@ -550,7 +532,7 @@ const styles = StyleSheet.create({
     color: "#444",
     flex: 5,
     fontWeight: "600",
-    fontSize: 18,
+    fontSize: 18
   }
 });
 &nbsp;</pre></td></tr>
@@ -559,10 +541,10 @@ const styles = StyleSheet.create({
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 18 2018 16:40:55 GMT+0200 (W. Europe Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 19 2018 12:43:39 GMT+0200 (CEST)
 </div>
 </div>
-<script src="..\prettify.js"></script>
+<script src="../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -570,6 +552,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="..\sorter.js"></script>
+<script src="../sorter.js"></script>
 </body>
 </html>
