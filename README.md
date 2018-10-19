@@ -1,9 +1,9 @@
 ﻿# Dokumentasjon
 
 I dette prosjektet har det blitt laget en "to do"-app hvor brukeren kan definere egne oppgaver han vil gjøre, i tillegg til å ha en skritteller med mål for antall skritt han går.
-Appen er skrevet i React Native med bruk av Expo og fungerer på både iOS og Android.
+Appen er skrevet i React Native med bruk av Expo og fungerer på både iOS og Android. Under er det skjermbilder av de forskjellige skjermene appen har (på en Android-telefon), og en sammenligning av hvordan skrittellerskjermen ser ut på iOS.
 
-Tasks To Do | Task options | Edit task | Step counter | Step counter on IOS
+Tasks To Do | Task options | Edit task | Step counter | Step counter on iOS
 :-:|:-:|:-:|:-:|:-:
 <img src="p3/pimm/img/tasks.jpg" width="150"> |  <img src="p3/pimm/img/tasks_with_options.jpg" width="150"> | <img src="p3/pimm/img/edit_task.jpg" width="150"> | <img src="p3/pimm/img/step_counter.jpg" width="150"> | <img src="p3/pimm/img/ios_step_counter.jpg" width="150">
 
