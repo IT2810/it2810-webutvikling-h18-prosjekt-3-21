@@ -71,7 +71,7 @@ Dette gjentas så for alle tilgjengelige tilstander og metoder.
 
 Disse testene gir en total testdekning på 52%. 
 Dette er ikke ideelt, men gir sørger for en minimumsdekning av appen.
-Dersom arbeidet med appen skulle fortsatt i lengre tid kunne flere tester ha blitt skrevet for å øke dekningen, men med begrenset tid ble dette ikke gjort nå. Testene avslørte også at appen kan ha ha problemer med "memory leaks", men dette ble heller ikke fikset på grunn av tidsfristen.
+Dersom arbeidet med appen skulle fortsatt i lengre tid kunne flere tester ha blitt skrevet for å øke dekningen, men med begrenset tid ble dette ikke gjort nå. Testene avslørte også at appen kan ha problemer med "memory leaks", men dette ble heller ikke fikset på grunn av tidsfristen.
 
 
 Testing av AsyncStorage gjøres ved at det blir laget en "mock" av AsyncStorage. Klassen som gjør dette heter `MockStorage` og er
