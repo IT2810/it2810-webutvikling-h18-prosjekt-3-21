@@ -18,11 +18,9 @@ export class EditTaskScreen extends Component {
     this.state.taskID = props.taskid;
     this.state.tasksArray = [];
     this.state.type = props.type;
-
   }
 
   componentDidMount() {
-    //AsyncStorage.clear();
     _retrieveData = async () => {
       let taskArr = [];
       try {
@@ -51,8 +49,10 @@ export class EditTaskScreen extends Component {
     return (
       <View style={stylesEditScreen.container}>
         <View style={stylesEditScreen.editTaskHeader}>
-          <Text style={stylesEditScreen.editTaskHeaderText}>{this.state.type} TASK</Text>
-        </View>  
+          <Text style={stylesEditScreen.editTaskHeaderText}>
+            {this.state.type} TASK
+          </Text>
+        </View>
         <View style={stylesEditScreen.textInputContainer}>
           <TextInput
             style={stylesEditScreen.textInputField}
@@ -65,13 +65,19 @@ export class EditTaskScreen extends Component {
           />
         </View>
         <View style={stylesEditScreen.buttonContainer}>
-          <TouchableOpacity onPress={this.onPressBack} style={stylesEditScreen.button}>
+          <TouchableOpacity
+            onPress={this.onPressBack}
+            style={stylesEditScreen.button}
+          >
             <Image
               source={require("./assets/back.png")}
               style={stylesEditScreen.buttonIcon}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.onPressSaveTask} style={stylesEditScreen.button}>
+          <TouchableOpacity
+            onPress={this.onPressSaveTask}
+            style={stylesEditScreen.button}
+          >
             <View>
               <Image
                 source={require("./assets/accept.png")}
@@ -99,14 +105,11 @@ export class EditTaskScreen extends Component {
           counter = result;
         })
         .then(() => {
-          console.log("Retreived from async, counter:", counter);
           if (!this.isDefined(counter)) {
-            //console.log("counter is not defined or null");
             counter = 0;
           } else {
             counter = parseInt(counter);
             counter += 1;
-            //console.log("counter incremented");
           }
           if (typeof this.state.taskID != "undefined") {
             var task = {
@@ -122,9 +125,9 @@ export class EditTaskScreen extends Component {
             };
           }
           task.id_str = "" + task.id;
-          AsyncStorage.setItem("counter", JSON.stringify(counter)).then(() => {
-            //console.log("counter stored");
-          });
+          AsyncStorage.setItem("counter", JSON.stringify(counter)).then(
+            () => {}
+          );
           AsyncStorage.setItem(task.id_str, JSON.stringify(task)).then(() => {
             this.state.parent.handlePressBack();
           });
@@ -138,59 +141,59 @@ export class EditTaskScreen extends Component {
 
 export const stylesEditScreen = StyleSheet.create({
   container: {
-    backgroundColor: 'lightblue',
-    flexDirection: 'column',
+    backgroundColor: "lightblue",
+    flexDirection: "column",
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   textInputField: {
     height: 60,
-    margin: 10,
+    margin: 10
   },
 
   editTaskHeader: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    marginTop: '10%'
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    marginTop: "10%"
   },
 
   editTaskHeaderText: {
     fontSize: 40,
-    color: '#fff',
+    color: "#fff",
     textShadowColor: "#29436d",
     textShadowRadius: 0,
-    textShadowOffset: {width: 2, height: 1}
+    textShadowOffset: { width: 2, height: 1 }
   },
 
   textInputContainer: {
     flex: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%'
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%"
   },
 
   textInputField: {
-    backgroundColor: '#fff',
-    height: '40%',
-    width: '80%',
-    textAlign: 'left',
+    backgroundColor: "#fff",
+    height: "40%",
+    width: "80%",
+    textAlign: "left",
     paddingLeft: 10,
     borderRadius: 10,
-    borderColor: '#333',
+    borderColor: "#333",
     borderWidth: 2,
     fontSize: 25
   },
 
   buttonContainer: {
     flex: 3,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    width: '100%',
-    flexDirection: 'row'
+    alignItems: "flex-start",
+    justifyContent: "center",
+    width: "100%",
+    flexDirection: "row"
   },
 
   buttonIcon: {
@@ -198,6 +201,4 @@ export const stylesEditScreen = StyleSheet.create({
     width: 80,
     margin: 40
   }
-
-
 });
