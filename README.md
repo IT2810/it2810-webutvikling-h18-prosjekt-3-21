@@ -25,13 +25,13 @@ Skrittelleren ble implementert ved hjelp av Expo's Pedometer API. State til dett
 
 Oversikt over flyt i componenten:
 * componentDidMount():
-** Kaller _subscribe(), som sjekker om pedometer er tilgjengelig, abonnerer på skritt oppdateringer og henter asynkront ut steg utført siste 7 dager og siste dag.
-** Deretter kalles _LoadGoal() som laster inn nåværende step-goal fra async storage, hvis det ikke eksisterer noe mål i async storage settes målet til 1000 steg
+    * Kaller _subscribe(), som sjekker om pedometer er tilgjengelig, abonnerer på skritt oppdateringer og henter asynkront ut steg utført siste 7 dager og siste dag.
+    * Deretter kalles _LoadGoal() som laster inn nåværende step-goal fra async storage, hvis det ikke eksisterer noe mål i async storage settes målet til 1000 steg
 * Komponenten er mountet:
-** Bruker getStepPercent() i rendringen for å oppdatere nåværende status i progress bar og tekst.
-** Hvis brukeren trykker på set goal så vises konfigurasjonsknappene. Pluss og minus øker og senker nåværende mål via onPressIncrementGoal() og onPressDecrementGoal(). Når brukeren trykker på confirm så lagres målet via _storeGoal, og stepGoalsToday settes lik configStepGoalPending. Deretter trigges en ny render siden staten er oppdatert og ny informasjon vises på skjermen
+    * Bruker getStepPercent() i rendringen for å oppdatere nåværende status i progress bar og tekst.
+    * Hvis brukeren trykker på set goal så vises konfigurasjonsknappene. Pluss og minus øker og senker nåværende mål via onPressIncrementGoal() og onPressDecrementGoal(). Når brukeren trykker på confirm så lagres målet via _storeGoal, og stepGoalsToday settes lik configStepGoalPending. Deretter trigges en ny render siden staten er oppdatert og ny informasjon vises på skjermen
 * componentWillUnmount():
-** Kaller _unsubscribe() som avabonnerer på Pedometer apien
+    * Kaller _unsubscribe() som avabonnerer på Pedometer apien
 
 Annet:
 * Skrittelleren fungerer på iOS uten noe tillegssoftware, men på Android er brukeren nødt til å installere google health for at skrittelleren skal bli tilgjengelig
