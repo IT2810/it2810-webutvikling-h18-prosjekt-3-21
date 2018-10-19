@@ -1,5 +1,5 @@
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\App.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/App.js
 FN:8,(anonymous_0)
 FN:14,(anonymous_1)
 FN:17,(anonymous_2)
@@ -55,7 +55,7 @@ BRF:14
 BRH:13
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\EditTaskScreen.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/EditTaskScreen.js
 FN:13,(anonymous_0)
 FN:22,(anonymous_1)
 FN:23,(anonymous_2)
@@ -141,7 +141,7 @@ BRF:7
 BRH:0
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\HomeScreen.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/HomeScreen.js
 FN:8,(anonymous_0)
 FN:18,(anonymous_1)
 FN:22,(anonymous_2)
@@ -190,7 +190,7 @@ BRF:14
 BRH:13
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\MockStorage.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/MockStorage.js
 FN:2,(anonymous_0)
 FN:6,(anonymous_1)
 FN:7,(anonymous_2)
@@ -240,7 +240,7 @@ BRF:9
 BRH:7
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\PedoSensor.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/PedoSensor.js
 FN:23,(anonymous_0)
 FN:30,(anonymous_1)
 FN:41,(anonymous_2)
@@ -368,7 +368,7 @@ BRF:20
 BRH:8
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\Task.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/Task.js
 FN:12,(anonymous_0)
 FN:26,(anonymous_1)
 FN:27,(anonymous_2)
@@ -418,7 +418,7 @@ BRF:4
 BRH:1
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\TasksCompleted.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/TasksCompleted.js
 FN:7,(anonymous_0)
 FN:16,(anonymous_1)
 FN:19,(anonymous_2)
@@ -469,7 +469,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\TasksToDo.js
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/TasksToDo.js
 FN:7,(anonymous_0)
 FN:17,(anonymous_1)
 FN:20,(anonymous_2)
@@ -520,7 +520,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\assets\accept.png
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/assets/accept.png
 FNF:0
 FNH:0
 DA:1,2
@@ -530,7 +530,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\assets\back.png
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/assets/back.png
 FNF:0
 FNH:0
 DA:1,2
@@ -540,7 +540,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\webdev\it2810proj3\p3\pimm\assets\plus.png
+SF:/Users/simenkjernlie/Dev/it2810-webutvikling-h18-prosjekt-3-21/p3/pimm/assets/plus.png
 FNF:0
 FNH:0
 DA:1,2

@@ -34,8 +34,16 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
       }
     >
       <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
         accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
         isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -56,6 +64,8 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
             "width": "100%",
           }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View>
           <Text
@@ -80,8 +90,16 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
         </View>
       </View>
       <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
         accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
         isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -103,6 +121,8 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
             "width": "100%",
           }
         }
+        testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View>
           <Text
@@ -138,8 +158,16 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
       }
     />
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
       isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -157,6 +185,8 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
           "right": "5%",
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
       <Image
         source={1}
@@ -180,8 +210,16 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
     }
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
       isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -199,6 +237,8 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
           "opacity": 1,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
       <Text
         accessible={true}
@@ -222,8 +262,16 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
       </Text>
     </View>
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
       isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -241,6 +289,8 @@ exports[`Snapshot, state and method tests in App.js 1`] = `
           "opacity": 1,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
       <Text
         accessible={true}
