@@ -34,7 +34,7 @@ Oversikt over flyt i componenten:
     * Kaller _unsubscribe() som avabonnerer på Pedometer apien
 
 Annet:
-* Skrittelleren fungerer på iOS uten noe tillegssoftware, men på Android er brukeren nødt til å installere google health for at skrittelleren skal bli tilgjengelig
+* Skrittelleren fungerer på iOS uten noen tilleggssoftware, men på Android er brukeren nødt til å installere google health for at skrittelleren skal bli tilgjengelig
 
 
 
