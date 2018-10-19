@@ -1,7 +1,7 @@
 ﻿# Dokumentasjon
 
 I dette prosjektet har det blitt laget en "to do"-app hvor brukeren kan definere egne oppgaver han vil gjøre, i tillegg til å ha en skritteller med mål for antall skritt han går.
-Appen er skrevet i React Native med bruk av Expo og fungerer på både iOS og Android. Under er det skjermbilder av de forskjellige skjermene appen har (på en Android-telefon), og en sammenligning av hvordan skrittellerskjermen ser ut på iOS.
+Appen er skrevet i React Native med bruk av Expo og fungerer på både iOS og Android. Expo 2.2.0 og Node 6.4.1 ble brukt. Under er det skjermbilder av de forskjellige skjermene appen har (på en Android-telefon), og en sammenligning av hvordan skrittellerskjermen ser ut på iOS.
 
 Tasks To Do | Task options | Edit task | Step counter | Step counter on iOS
 :-:|:-:|:-:|:-:|:-:
@@ -55,13 +55,14 @@ Oppgavene lagres som JSON-objekter, med en unik ID, en oppgavebeskrivelse og ver
 
 ## Testing
 
-Testing er gjort med `Jest` og `TestRenderer` funksjonen til `react-test-renderer`.
+Testing er gjort med `Jest` og `TestRenderer` funksjonen til `react-test-renderer`. 
 Alle komponentene sjekkes med snapshot-funksjonaliteten til Jest for å sjekke at brukergrensesnittet ikke forandrer seg utilsiktet. 
 Disse testene gjøres ved at UI-komponentene til appen rendres, lagres (ofte som JSON), før de sammenlignes med tidligere snapshot for å se om de matcher. 
 Dersom noe er forskjellig vil testen feile. 
 Hvis forandringer i brukergrensesnittet er gjort med hensikt kan snapshot'et oppdateres for å inkludere endringene.
 Disse testene egner seg ikke godt under utvikling av brukergrensesnittet, men fungerer bra når brukergrensesnittet er klart og forandringer som gjøres ikke er ment å forandre det brukeren ser. 
 Snapshot-testene gjøres i testfiler med samme navn som komponenten, ie. `App.test.js` tester `App.js`. 
+Snapshot-testen av `App.js` passerer på Windows, men feiler på OSX. Dette ser ut til å være fordi snapshot'ene som genereres på de forskjellige operativsystemene kan være forskjellige selv om koden er helt lik. Vi har ikke funnet noen løsning på dette. 
 
 `TestRenderer` brukes for å rendre komponenttreet inn i minnet så forskjellige sjekker kan gjøres.
 Med dette testtreet kan både metoder og `states` i komponentene kalles og sjekkes.
@@ -70,7 +71,7 @@ Dette gjentas så for alle tilgjengelige tilstander og metoder.
 
 Disse testene gir en total testdekning på 52%. 
 Dette er ikke ideelt, men gir sørger for en minimumsdekning av appen.
-Dersom arbeidet med appen skulle fortsatt i lengre tid kunne flere tester ha blitt skrevet for å øke dekningen, men med begrenset tid ble dette ikke gjort nå.
+Dersom arbeidet med appen skulle fortsatt i lengre tid kunne flere tester ha blitt skrevet for å øke dekningen, men med begrenset tid ble dette ikke gjort nå. Testene avslørte også at appen kan ha ha problemer med "memory leaks", men dette ble heller ikke fikset på grunn av tidsfristen.
 
 
 Testing av AsyncStorage gjøres ved at det blir laget en "mock" av AsyncStorage. Klassen som gjør dette heter `MockStorage` og er
