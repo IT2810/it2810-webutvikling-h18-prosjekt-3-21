@@ -8,7 +8,6 @@ import {
   TextInput,
   Image
 } from "react-native";
-import { styles } from "./HomeScreen";
 
 export class EditTaskScreen extends Component {
   constructor(props) {
@@ -21,7 +20,6 @@ export class EditTaskScreen extends Component {
   }
 
   componentDidMount() {
-    //AsyncStorage.clear();
     _retrieveData = async () => {
       let taskArr = [];
       try {
@@ -106,14 +104,11 @@ export class EditTaskScreen extends Component {
           counter = result;
         })
         .then(() => {
-          console.log("Retreived from async, counter:", counter);
           if (!this.isDefined(counter)) {
-            //console.log("counter is not defined or null");
             counter = 0;
           } else {
             counter = parseInt(counter);
             counter += 1;
-            //console.log("counter incremented");
           }
           if (typeof this.state.taskID != "undefined") {
             var task = {
@@ -129,9 +124,9 @@ export class EditTaskScreen extends Component {
             };
           }
           task.id_str = "" + task.id;
-          AsyncStorage.setItem("counter", JSON.stringify(counter)).then(() => {
-            //console.log("counter stored");
-          });
+          AsyncStorage.setItem("counter", JSON.stringify(counter)).then(
+            () => {}
+          );
           AsyncStorage.setItem(task.id_str, JSON.stringify(task)).then(() => {
             this.state.parent.handlePressBack();
           });

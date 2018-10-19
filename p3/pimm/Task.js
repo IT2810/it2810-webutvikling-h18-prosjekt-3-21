@@ -1,15 +1,9 @@
 import React from "react";
 import {
-  Alert,
-  AppRegistry,
   AsyncStorage,
-  Platform,
   StyleSheet,
   Text,
-  TouchableHighlight,
   TouchableOpacity,
-  TouchableNativeFeedback,
-  TouchableWithoutFeedback,
   View,
   Image
 } from "react-native";
