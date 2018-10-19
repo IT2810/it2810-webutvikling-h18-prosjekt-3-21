@@ -8,7 +8,6 @@ import {
   TextInput,
   Image
 } from "react-native";
-import { styles } from "./HomeScreen";
 
 export class EditTaskScreen extends Component {
   constructor(props) {
