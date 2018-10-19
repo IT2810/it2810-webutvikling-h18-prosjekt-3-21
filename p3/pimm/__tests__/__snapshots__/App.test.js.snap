@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`State changes in App.js works correctly 1`] = `
+exports[`Snapshot, state and method tests in App.js 1`] = `
 <View
   style={
     Object {

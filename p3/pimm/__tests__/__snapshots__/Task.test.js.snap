@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Methods in Task.js works correctly 1`] = `[Function]`;
+exports[`Snapshot and state test of Task.js 1`] = `[Function]`;
