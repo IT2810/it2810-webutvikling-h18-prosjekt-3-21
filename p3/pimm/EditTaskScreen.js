@@ -55,7 +55,7 @@ export class EditTaskScreen extends Component {
         <View style={stylesEditScreen.textInputContainer}>
           <TextInput
             style={stylesEditScreen.textInputField}
-            placeholder="Enter task name..."
+            placeholder="Enter task description"
             blurOnSubmit={true}
             value={this.state.taskDescription}
             multiline={true}
