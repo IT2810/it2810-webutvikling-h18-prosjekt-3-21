@@ -1,27 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Snapshot, state and method tests in App.js 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "lightblue",
-      "flex": 1,
+      "alignContent": "center",
+      "flexDirection": "column",
+      "height": "100%",
       "justifyContent": "center",
+      "width": "100%",
     }
   }
 >
   <View
     style={
-      Array [
-        Object {
-          "flex": 1,
-          "marginTop": 30,
-          "width": "95%",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "lightblue",
+        "flex": 1,
+        "justifyContent": "center",
+        "marginTop": 0,
+      }
     }
   >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "marginTop": 30,
+          "padding": 0,
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "lightblue",
+            "borderBottomWidth": 0,
+            "borderColor": "#29436d",
+            "borderLeftWidth": 0,
+            "borderWidth": 1,
+            "flex": 1,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": "100%",
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#fff",
+                "fontSize": 30,
+                "textShadowColor": "#29436d",
+                "textShadowOffset": Object {
+                  "height": 1,
+                  "width": 1,
+                },
+                "textShadowRadius": 0,
+              }
+            }
+          >
+            TO DO
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5176A1",
+            "borderColor": "#29436d",
+            "borderRadius": 0,
+            "borderRightWidth": 0,
+            "borderWidth": 1,
+            "flex": 1,
+            "justifyContent": "center",
+            "marginTop": 3,
+            "opacity": 1,
+            "width": "100%",
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#444",
+                "fontSize": 29,
+                "textShadowColor": "#29436d",
+                "textShadowOffset": Object {
+                  "height": 1,
+                  "width": 1,
+                },
+                "textShadowRadius": 0,
+              }
+            }
+          >
+            COMPLETED
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 7,
+          "marginBottom": 20,
+          "marginTop": 10,
+          "width": "100%",
+        }
+      }
+    />
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
@@ -42,56 +177,35 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#5176A1",
-          "borderColor": "black",
-          "borderRadius": 15,
-          "borderWidth": 3,
-          "flex": 1,
+          "bottom": "5%",
           "justifyContent": "center",
-          "margin": 2,
           "opacity": 1,
-          "width": "100%",
+          "padding": 0,
+          "position": "absolute",
+          "right": "5%",
         }
       }
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "fontSize": 25,
-            }
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 60,
+            "width": 60,
           }
-        >
-          Add task
-        </Text>
-      </View>
+        }
+      />
     </View>
   </View>
   <View
     style={
       Object {
-        "borderBottomColor": "#888",
-        "borderBottomWidth": 2,
-        "borderTopColor": "#888",
-        "borderTopWidth": 2,
-        "flex": 7,
-        "margin": 4,
-        "width": "100%",
-      }
-    }
-  />
-  <View
-    style={
-      Object {
-        "flex": 1,
+        "alignContent": "center",
         "flexDirection": "row",
-        "marginBottom": 3,
-        "padding": 3,
+        "height": "8%",
+        "justifyContent": "center",
       }
     }
   >
@@ -114,35 +228,38 @@ exports[`renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#5176A1",
-          "borderColor": "black",
-          "borderRadius": 15,
-          "borderWidth": 3,
+          "alignSelf": "center",
+          "backgroundColor": "#f7f7f7",
+          "borderTopWidth": 1,
           "flex": 1,
+          "height": "100%",
           "justifyContent": "center",
-          "margin": 2,
           "opacity": 1,
-          "width": "100%",
         }
       }
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
             Object {
-              "fontSize": 25,
-            }
-          }
-        >
-          To do
-        </Text>
-      </View>
+              "alignSelf": "center",
+              "color": "#555",
+              "fontSize": 20,
+              "justifyContent": "center",
+            },
+            Object {
+              "color": "#333",
+            },
+          ]
+        }
+      >
+        TASK LIST
+      </Text>
     </View>
     <View
       accessibilityComponentType={undefined}
@@ -163,35 +280,36 @@ exports[`renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#5176A1",
-          "borderColor": "black",
-          "borderRadius": 15,
-          "borderWidth": 3,
+          "alignSelf": "center",
+          "backgroundColor": "#aaa",
+          "borderTopWidth": 1,
           "flex": 1,
+          "height": "100%",
           "justifyContent": "center",
-          "margin": 2,
           "opacity": 1,
-          "width": "100%",
         }
       }
       testID={undefined}
       tvParallaxProperties={undefined}
     >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
             Object {
-              "fontSize": 25,
-            }
-          }
-        >
-          Completed
-        </Text>
-      </View>
+              "alignSelf": "center",
+              "color": "#555",
+              "fontSize": 20,
+              "justifyContent": "center",
+            },
+            "",
+          ]
+        }
+      >
+        STEP COUNTER
+      </Text>
     </View>
   </View>
 </View>

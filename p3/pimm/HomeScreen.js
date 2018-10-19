@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  AsyncStorage,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { Task } from "./Task";
 import { TasksToDo } from "./TasksToDo";
 import { TasksCompleted } from "./TasksCompleted";
@@ -16,6 +9,7 @@ export class HomeScreen extends Component {
     super(props);
     this.state.parent = props.parent;
   }
+
   state = {
     displayedTab: "todo",
     tasksArray: []
@@ -32,31 +26,69 @@ export class HomeScreen extends Component {
     } else if (this.state.displayedTab === "completed") {
       tasks = <TasksCompleted parent={this} />;
     }
+
+    let addTaskButton;
+    if (this.state.displayedTab === "todo") {
+      addTaskButton = (
+        <TouchableOpacity
+          onPress={this.onPressAddTask}
+          style={styles.addTaskButton}
+        >
+          <Image
+            source={require("./assets/plus.png")}
+            style={styles.addTaskButtonImage}
+          />
+        </TouchableOpacity>
+      );
+    }
     return (
       <View style={styles.container}>
-        <View style={[styles.header]}>
-          <TouchableOpacity onPress={this.onPressAddTask} style={styles.button}>
+        <View style={styles.navBarTodo}>
+          <TouchableOpacity
+            onPress={this.onPressToDo}
+            style={[
+              this.state.displayedTab == "todo"
+                ? styles.activeButton
+                : styles.button,
+              { borderLeftWidth: 0 }
+            ]}
+          >
             <View>
-              <Text style={styles.buttonText}>Add task</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.mainContainer}>{tasks}</View>
-        <View style={styles.navBarBottom}>
-          <TouchableOpacity onPress={this.onPressToDo} style={styles.button}>
-            <View>
-              <Text style={styles.buttonText}>To do</Text>
+              <Text
+                style={
+                  this.state.displayedTab == "todo"
+                    ? styles.activeButtonText
+                    : styles.buttonText
+                }
+              >
+                TO DO
+              </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={this.onPressCompleted}
-            style={styles.button}
+            style={[
+              this.state.displayedTab == "completed"
+                ? styles.activeButton
+                : styles.button,
+              { borderRightWidth: 0 }
+            ]}
           >
             <View>
-              <Text style={styles.buttonText}>Completed</Text>
+              <Text
+                style={
+                  this.state.displayedTab == "completed"
+                    ? styles.activeButtonText
+                    : styles.buttonText
+                }
+              >
+                COMPLETED
+              </Text>
             </View>
           </TouchableOpacity>
         </View>
+        <View style={styles.mainContainer}>{tasks}</View>
+        {addTaskButton}
       </View>
     );
   }
@@ -70,64 +102,88 @@ export class HomeScreen extends Component {
     this.state.parent.handleAddTask();
   };
 }
+export default HomeScreen;
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "lightblue",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 0 //20
   },
-  header: {
-    flex: 1,
-    width: "95%",
-    marginTop: 30
-  },
-  headerText: {
-    fontSize: 30,
-    height: "100%"
-  },
+
   mainContainer: {
     flex: 7,
     width: "100%",
-    margin: 4,
-    borderTopColor: "#888",
-    borderTopWidth: 2,
-    borderBottomColor: "#888",
-    borderBottomWidth: 2
+    marginTop: 10,
+    marginBottom: 20
   },
+
   taskContainer: {
-    padding: 1,
-    alignItems: "center"
+    margin: 1,
+    alignItems: "center",
+    paddingBottom: 100
   },
-  navBarBottom: {
+
+  navBarTodo: {
     flex: 1,
     flexDirection: "row",
-    padding: 3,
-    marginBottom: 3
+    padding: 0,
+    marginTop: 30
   },
+
   button: {
     flex: 1,
     backgroundColor: "#5176A1",
-    borderColor: "black",
+    borderColor: "#29436d",
     width: "100%",
-    borderWidth: 3,
-    borderRadius: 15,
+    borderWidth: 1,
+    borderRadius: 0,
     alignItems: "center",
     justifyContent: "center",
-    margin: 2
+    marginTop: 3
   },
+
+  activeButton: {
+    flex: 1,
+    backgroundColor: "lightblue",
+    borderColor: "#29436d",
+    width: "100%",
+    borderWidth: 1,
+    borderBottomWidth: 0,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
   buttonText: {
-    fontSize: 25
+    fontSize: 29,
+    // fontWeight: "bold",
+    color: "#444",
+    textShadowColor: "#29436d",
+    textShadowRadius: 0,
+    textShadowOffset: { width: 1, height: 1 }
   },
-  taskPlaceholder: {
-    flex: 0,
-    width: "95%",
-    height: "20%",
-    borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 4,
-    margin: 1,
-    textAlign: "center",
-    textAlignVertical: "center"
+
+  activeButtonText: {
+    fontSize: 30,
+    //fontWeight: "200",
+    color: "#fff",
+    textShadowColor: "#29436d",
+    textShadowRadius: 0,
+    textShadowOffset: { width: 1, height: 1 }
+  },
+
+  addTaskButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    bottom: "5%",
+    right: "5%",
+    padding: 0
+  },
+
+  addTaskButtonImage: {
+    width: 60,
+    height: 60
   }
 });

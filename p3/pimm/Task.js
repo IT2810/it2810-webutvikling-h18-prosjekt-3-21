@@ -68,69 +68,92 @@ export class Task extends React.Component {
         </TouchableOpacity>
       );
     } else {
-      taskItem = (
-        <View style={styles.taskoptions}>
-          <TouchableOpacity onPress={this._toggleTaskOptions}>
-            <Image
-              source={require("./assets/back.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
+      if (this.state.parent.state.parent.state.displayedTab == "todo") {
+        taskItem = (
+          <View style={styles.taskoptions}>
+            <TouchableOpacity onPress={this._toggleTaskOptions}>
+              <Image
+                source={require("./assets/back.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressEditTask}>
-            <Image
-              source={require("./assets/edit.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={this._onPressEditTask}>
+              <Image
+                source={require("./assets/edit.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressDeleteTask}>
-            <Image
-              source={require("./assets/delete.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={this._onPressDeleteTask}>
+              <Image
+                source={require("./assets/delete.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressCompleteTask}>
-            <Image
-              source={require("./assets/accept.png")}
-              style={styles.taskoptionbutton}
-            />
-          </TouchableOpacity>
-        </View>
-      );
+            <TouchableOpacity onPress={this._onPressCompleteTask}>
+              <Image
+                source={require("./assets/accept.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
+          </View>
+        );
+      } else {
+        taskItem = (
+          <View style={styles.taskoptions}>
+            <TouchableOpacity onPress={this._toggleTaskOptions}>
+              <Image
+                source={require("./assets/back.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={this._onPressDeleteTask}>
+              <Image
+                source={require("./assets/delete.png")}
+                style={styles.taskoptionbutton}
+              />
+            </TouchableOpacity>
+          </View>
+        );
+      }
     }
     return taskItem;
   }
 }
+export default Task;
 
 const styles = StyleSheet.create({
   task: {
     flexDirection: "row",
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
-    height: 100,
-    borderColor: "#999",
-    borderWidth: 3,
-    borderRadius: 5,
-    paddingLeft: 10,
-    paddingRight: 10
+    width: "95%",
+    height: 70,
+    borderColor: "#aaa",
+    borderWidth: 1,
+    borderRadius: 4,
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginTop: 5
   },
 
   taskoptions: {
     flexDirection: "row",
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "100%",
-    height: 100,
+    width: "95%",
+    height: 70,
     borderColor: "#999",
-    borderWidth: 3,
-    borderRadius: 5,
-    paddingLeft: 10,
-    paddingRight: 10
+    borderWidth: 2,
+    borderRadius: 4,
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginTop: 5
   },
 
   taskoptionbutton: {
@@ -139,7 +162,9 @@ const styles = StyleSheet.create({
   },
 
   taskdescription: {
-    color: "#333",
-    flex: 5
+    color: "#444",
+    flex: 5,
+    fontWeight: "600",
+    fontSize: 18
   }
 });

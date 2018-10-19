@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
-  Picker
+  Image
 } from "react-native";
 import { styles } from "./HomeScreen";
 
@@ -16,8 +16,8 @@ export class EditTaskScreen extends Component {
     this.state.parent = props.parent;
     this.state.taskDescription = props.taskdesc;
     this.state.taskID = props.taskid;
-    this.state.taskType = "regTask";
     this.state.tasksArray = [];
+    this.state.type = props.type;
   }
 
   componentDidMount() {
@@ -48,49 +48,42 @@ export class EditTaskScreen extends Component {
   state = {};
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.button}>
-            <View>
-              <Text style={styles.buttonText}>Add task</Text>
-            </View>
-          </TouchableOpacity>
+      <View style={stylesEditScreen.container}>
+        <View style={stylesEditScreen.editTaskHeader}>
+          <Text style={stylesEditScreen.editTaskHeaderText}>
+            {this.state.type} TASK
+          </Text>
         </View>
-        <View style={styles.mainContainer}>
+        <View style={stylesEditScreen.textInputContainer}>
           <TextInput
             style={stylesEditScreen.textInputField}
-            placeholder="Add task description here"
+            placeholder="Enter task name..."
             blurOnSubmit={true}
             value={this.state.taskDescription}
             multiline={true}
             placeholderTextColor={"gray"}
             onChangeText={text => this.setState({ taskDescription: text })}
           />
-          <View style={stylesEditScreen.pickerField}>
-            <Text>Pick task type:</Text>
-            <Picker
-              selectedValue={this.state.taskType}
-              onValueChange={(itemValue, itemIndex) =>
-                this.setState({ taskType: itemValue })
-              }
-            >
-              <Picker.Item label="Regular" value="regTask" />
-              <Picker.Item label="Steps" value="stepTask" />
-            </Picker>
-          </View>
         </View>
-        <View style={styles.navBarBottom}>
-          <TouchableOpacity onPress={this.onPressBack} style={styles.button}>
-            <View>
-              <Text style={styles.buttonText}>Back</Text>
-            </View>
+        <View style={stylesEditScreen.buttonContainer}>
+          <TouchableOpacity
+            onPress={this.onPressBack}
+            style={stylesEditScreen.button}
+          >
+            <Image
+              source={require("./assets/back.png")}
+              style={stylesEditScreen.buttonIcon}
+            />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={this.onPressSaveTask}
-            style={styles.button}
+            style={stylesEditScreen.button}
           >
             <View>
-              <Text style={styles.buttonText}>Save task</Text>
+              <Image
+                source={require("./assets/accept.png")}
+                style={stylesEditScreen.buttonIcon}
+              />
             </View>
           </TouchableOpacity>
         </View>
@@ -149,13 +142,68 @@ export class EditTaskScreen extends Component {
     }
   };
 }
+export default EditTaskScreen;
 
 export const stylesEditScreen = StyleSheet.create({
+  container: {
+    backgroundColor: "lightblue",
+    flexDirection: "column",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
   textInputField: {
     height: 60,
     margin: 10
   },
-  pickerField: {
-    margin: 30
+
+  editTaskHeader: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    marginTop: "10%"
+  },
+
+  editTaskHeaderText: {
+    fontSize: 40,
+    color: "#fff",
+    textShadowColor: "#29436d",
+    textShadowRadius: 0,
+    textShadowOffset: { width: 2, height: 1 }
+  },
+
+  textInputContainer: {
+    flex: 3,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%"
+  },
+
+  textInputField: {
+    backgroundColor: "#fff",
+    height: "40%",
+    width: "80%",
+    textAlign: "left",
+    paddingLeft: 10,
+    borderRadius: 10,
+    borderColor: "#333",
+    borderWidth: 2,
+    fontSize: 25
+  },
+
+  buttonContainer: {
+    flex: 3,
+    alignItems: "flex-start",
+    justifyContent: "center",
+    width: "100%",
+    flexDirection: "row"
+  },
+
+  buttonIcon: {
+    height: 80,
+    width: 80,
+    margin: 40
   }
 });

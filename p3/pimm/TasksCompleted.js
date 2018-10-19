@@ -65,3 +65,4 @@ export class TasksCompleted extends Component {
     );
   }
 }
+export default TasksCompleted;
