@@ -5,7 +5,7 @@ Appen er skrevet i React Native med bruk av Expo og fungerer på både iOS og An
 
 Tasks To Do | Task options | Edit task | Step counter | Step counter on IOS
 :-:|:-:|:-:|:-:|:-:
-<img src="p3/pimm/img/tasks.jpg" width="150"> |  <img src="p3/pimm/img/tasks_with_options.jpg" width="150"> | <img src="p3/pimm/img/edit_task.jpg" width="150"> | <img src="p3/pimm/img/step_counter.jpg" width="150"> | <img src="p3/pimm/img/ios_step_counter.jpg" width="150"
+<img src="p3/pimm/img/tasks.jpg" width="150"> |  <img src="p3/pimm/img/tasks_with_options.jpg" width="150"> | <img src="p3/pimm/img/edit_task.jpg" width="150"> | <img src="p3/pimm/img/step_counter.jpg" width="150"> | <img src="p3/pimm/img/ios_step_counter.jpg" width="150">
 
 
 
