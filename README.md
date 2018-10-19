@@ -68,7 +68,7 @@ Med dette testtreet kan både metoder og `states` i komponentene kalles og sjekk
 Dette gjøres blant annet i `App.test.js` og `HomeScreen.test.js`, hvor en state sjekkes, en metode som skal påvirke den state'en kalles, før state'en sjekkes igjen for å bekrefte at den korrekte endringen er gjort. 
 Dette gjentas så for alle tilgjengelige tilstander og metoder.  
 
-Disse testene gir en total testdekning på 49%. 
+Disse testene gir en total testdekning på 52%. 
 Dette er ikke ideelt, men gir sørger for en minimumsdekning av appen.
 Dersom arbeidet med appen skulle fortsatt i lengre tid kunne flere tester ha blitt skrevet for å øke dekningen, men med begrenset tid ble dette ikke gjort nå.
 
