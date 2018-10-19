@@ -14,7 +14,29 @@ Hver av disse subkomponentene består begge av `Task.js`-komponenter, der state 
 `EditTaskScreen.js` er skjermen som rendres hvis en ny oppave skal legges til eller en eksisterende oppgave skal oppdateres.
 Denne består ikke av noen subkomponenter.
 
-`PedometerSensor.js` er skjermen for skritteller-funksjonaliteten.
+`PedoSensor.js` er skjermen for skritteller-funksjonaliteten.
+Skrittelleren ble implementert ved hjelp av Expo's Pedometer API. State til dette komponentet inneholder flere variabler:
+* isPedometerAvailable: Representerer tilgjengeligheten av pedometeret til enheten, kan være "checking", "true" eller "false"
+* stepCount7Days: Antall skritt gjennomført siste 7 dager, hentes asynkront når componenten abonnerer på resultat fra pedometer api'en.
+* stepGoalToday: Lagrer daglig skrittmål, dette lastes inn når componentet mountes gjennom _loadGoal() og lagres når et nytt mål er satt og bekreftet gjennom _storeGoal()
+* stepsToday, steps: stepsToday hentes ut fra pedometer apiet når componentet mountes og er antall steg gjort siden starten av dagen. Steps oppdateres kontinuerlig når skritt telleren er åpen gjennom et abonnement på Pedometer.watchStepCount()
+* showGoalSetup: Brukes for å bestemme i rendringen om konfigurering av mål skal vises eller ikke, settes til true når set goal trykkes på, settes til false når confirm trykkes på.
+* configStepGoalPending: Mellomlagring av skritt mål, stepGoalToday settes lik denne når confirm trykkes på.
+
+Oversikt over flyt i componenten:
+* componentDidMount():
+** Kaller _subscribe(), som sjekker om pedometer er tilgjengelig, abonnerer på skritt oppdateringer og henter asynkront ut steg utført siste 7 dager og siste dag.
+** Deretter kalles _LoadGoal() som laster inn nåværende step-goal fra async storage, hvis det ikke eksisterer noe mål i async storage settes målet til 1000 steg
+* Komponenten er mountet:
+** Bruker getStepPercent() i rendringen for å oppdatere nåværende status i progress bar og tekst.
+** Hvis brukeren trykker på set goal så vises konfigurasjonsknappene. Pluss og minus øker og senker nåværende mål via onPressIncrementGoal() og onPressDecrementGoal(). Når brukeren trykker på confirm så lagres målet via _storeGoal, og stepGoalsToday settes lik configStepGoalPending. Deretter trigges en ny render siden staten er oppdatert og ny informasjon vises på skjermen
+* componentWillUnmount():
+** Kaller _unsubscribe() som avabonnerer på Pedometer apien
+
+Annet:
+* Skrittelleren fungerer på iOS uten noe tillegssoftware, men på Android er brukeren nødt til å installere google health for at skrittelleren skal bli tilgjengelig
+
+
 
 ## Skritteller
 

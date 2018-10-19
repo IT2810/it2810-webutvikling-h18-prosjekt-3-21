@@ -7,7 +7,7 @@ export class PedometerSensor extends React.Component {
   state = {
     isPedometerAvailable: "checking",
     stepCount7days: 0,
-    stepGoalToday: 10000,
+    stepGoalToday: 0,
     stepsToday: 0,
     steps: 0,
     showGoalSetup: false,
